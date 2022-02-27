@@ -4,22 +4,18 @@
       <header>
         <h2 class="app-title">{{ contact.title }}</h2>
       </header>
-      <app-btn :btn="contact.button"></app-btn>
+      <base-button :btn="contact.button"></base-button>
     </article>
   </section>
 </template>
 
 <script>
-import Btn from '@/components/BaseButton'
 
 export default {
   data () {
     return {
       contact: this.$store.getters.contact
     }
-  },
-  components: {
-    appBtn: Btn
   }
 }
 </script>

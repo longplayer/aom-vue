@@ -6,27 +6,23 @@
           <p class="h-place" v-if="hero.place.length">{{ hero.place }} :</p>
           <p class="h-title" v-if="hero.title.lenght">{{ hero.title }}</p>
           <p class="h-date" v-if="hero.date.str.length">{{ hero.date.str }}</p>
-          <app-btn v-scroll-to="hero.button.href" :btn="hero.button"
-          ></app-btn>
+          <base-button v-scroll-to="hero.button.href" :btn="hero.button"
+          ></base-button>
         </div>
-        <app-figure class="h-fig">
+        <base-figure class="h-fig">
           <template slot="image">
-            <app-img class="h-img"
+            <base-image class="h-img"
               :src="loadImage"
               :alt="hero.image.alt"
-            ></app-img>
+            ></base-image>
           </template>
-        </app-figure>
+        </base-figure>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import AppBtn from '@/components/BaseButton'
-import AppFigure from '@/components/BaseFigure'
-import AppImg from '@/components/BaseImage'
-
 export default {
   data () {
     return {
@@ -78,11 +74,6 @@ export default {
     loadImage () {
       return require('@/assets/img/' + this.img)
     }
-  },
-  components: {
-    AppBtn,
-    AppFigure,
-    AppImg
   }
 }
 </script>

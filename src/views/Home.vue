@@ -1,6 +1,6 @@
 <template>
   <div class='app-home'>
-    <app-hero></app-hero>
+    <base-hero></base-hero>
 
     <template v-if="showHighlight">
       <app-event-item
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import AppHero from '@/components/BaseHero.vue'
 import AppEventItem from '@/components/EventItem'
 import AppWaterfall from '@/components/TheWaterfall'
 import AppContact from '@/components/TheContact'
@@ -39,7 +38,6 @@ export default {
     }
   },
   components: {
-    AppHero,
     AppEventItem,
     AppWaterfall,
     AppContact,
