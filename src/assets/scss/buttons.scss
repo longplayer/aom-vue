@@ -1,0 +1,83 @@
+/*
+*   buttons
+* ============================================ */
+
+.btn{
+  display: inline-block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+
+  font-size: 16px;
+  padding: 10px;
+
+  -webkit-transition: all .4s ease-out;
+  transition: all .4s ease-out;
+}
+
+.btn-white.btn,
+.btn-white.btn,
+.btn-white.btn{
+  border-color: #FFF;
+  background-color: transparent;
+  color: #FFF;
+}
+
+.btn-black.btn,
+.btn-black.btn,
+.btn-black.btn{
+  border-color: #333;
+  background-color: #000;
+  color: #FFF;
+}
+
+.btn-white.btn:hover,
+.btn-white.btn:active,
+.btn-white.btn:focus{
+  border-color: #CCC;
+  background-color: #FFF;
+  color: #333;
+  text-decoration: none;
+}
+
+.btn-black.btn:hover,
+.btn-black.btn:active,
+.btn-black.btn:focus{
+  border-color: #CCC;
+  background-color: #FFF;
+  color: #333;
+  text-decoration: none;
+}
+
+@media (min-width: 320px) {
+  .btn{
+    font-size: 20px;
+    padding: 20px 40px;
+  }
+}
+
+@media (min-width: 576px) {
+  .btn{
+    font-size: 26px;
+    padding: 30px 60px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .btn{
+    font-size: 30px;
+    padding: 30px 80px;
+  }
+}

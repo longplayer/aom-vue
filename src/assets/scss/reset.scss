@@ -1,0 +1,24 @@
+/*
+*   Custom reset
+* ============================================ */
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: underline;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  list-style-type: none;
+}
