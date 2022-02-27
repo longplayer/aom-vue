@@ -1,29 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <header class="app-header">
+      <router-view name="app-header"></router-view>
+    </header>
+    <main class="app-main">
+      <router-view></router-view>
+    </main>
+    <router-view name="app-footer"></router-view>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+  created () {
+    this.$store.dispatch('initArtworks')
   }
 }
+</script>
+
+<style lang="scss">
+  @import './assets/css/bootstrap/bootstrap-reboot.css';
+  @import './assets/css/bootstrap/bootstrap-grid.css';
+  @import './assets/scss/main.scss';
 </style>
