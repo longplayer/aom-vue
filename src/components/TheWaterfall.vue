@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import WaterfallGrid from '@/components/layout/Waterfall/Grid'
+import WaterfallGrid from '@/components/Waterfall/Grid'
 
 export default {
   data () {

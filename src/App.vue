@@ -1,17 +1,24 @@
 <template>
   <div id="app">
     <header class="app-header">
-      <router-view name="app-header"></router-view>
+      <app-menu />
     </header>
     <main class="app-main">
       <router-view></router-view>
     </main>
-    <router-view name="app-footer"></router-view>
+    <app-footer />
   </div>
 </template>
 
 <script>
+import AppMenu from '@/components/TheMenu'
+import AppFooter from '@/components/TheFooter'
+
 export default {
+  components: {
+    AppMenu,
+    AppFooter
+  },
   created () {
     this.$store.dispatch('initArtworks')
   }

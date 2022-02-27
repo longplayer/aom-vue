@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Btn from '@/components/elements/Button'
+import Btn from '@/components/BaseButton'
 
 export default {
   data () {

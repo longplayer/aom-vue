@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import AppBtn from '@/components/elements/Button'
-import AppFigure from '@/components/elements/Figure'
-import AppImg from '@/components/elements/Img'
+import AppBtn from '@/components/BaseButton'
+import AppFigure from '@/components/BaseFigure'
+import AppImg from '@/components/BaseImage'
 
 export default {
   data () {

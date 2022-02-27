@@ -13,21 +13,22 @@
       ></app-event-item>
     </template>
 
-    <app-waterfall></app-waterfall>
+    <app-waterfall />
+
     <app-registration
       action="https://art-of-miguel-fernandez.us12.list-manage.com/subscribe/post?u=7064e11cf4419026247cbc5b6&id=98b4888011"
     ></app-registration>
-    <app-contact></app-contact>
+
+    <app-contact />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import AppHero from '@/components/ui/Hero.vue'
-import AppEventItem from '@/components/layout/EventItem'
-import AppWaterfall from '@/components/layout/Waterfall'
-import AppContact from '@/components/layout/Contact'
-import AppRegistration from '@/components/ui/Registration'
+import AppHero from '@/components/BaseHero.vue'
+import AppEventItem from '@/components/EventItem'
+import AppWaterfall from '@/components/TheWaterfall'
+import AppContact from '@/components/TheContact'
+import AppRegistration from '@/components/TheNewsletterRegistration'
 
 export default {
   name: 'home',
