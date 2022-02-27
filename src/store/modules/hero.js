@@ -7,10 +7,10 @@ export default {
   },
   mutations: {
     'UPDATE_BTN_PROP' (state, payload) {
-      state.button[ payload.property ] = payload.value
+      state.button[payload.property] = payload.value
     },
     'UPDATE_PROPERTY' (state, payload) {
-      state[ payload.property ] = payload.value
+      state[payload.property] = payload.value
     }
   },
   actions: {

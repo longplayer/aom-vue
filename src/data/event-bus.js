@@ -9,7 +9,7 @@ const highlight = artup2019
 // FIX: issue on webpack compilation
 // doc: https://github.com/webpack/webpack/tree/master/examples/require.context
 // src:https://stackoverflow.com/questions/39906807/cant-dynamically-pass-relative-src-path-for-imgs-in-vue-js-webpack
-let getSculpture = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
+const getSculpture = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
 
 export const EventBus = new Vue({
   data: {
@@ -62,9 +62,8 @@ export const EventBus = new Vue({
     }
   },
   created () {
-
     // Prepare images list
-    for (let item of sculpture) {
+    for (const item of sculpture) {
       this.appWaterfall.list.push({
         src: item.file,
         thumbnail: item.file,

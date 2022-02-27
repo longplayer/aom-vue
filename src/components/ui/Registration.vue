@@ -33,7 +33,7 @@
 
 <script>
 // https://gist.github.com/chrsgrffth/fa69fa9874871c8b52afc01d1a881e6d
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   props: {
     action: {

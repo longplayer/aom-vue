@@ -18,7 +18,7 @@
 // doc: https://github.com/webpack/webpack/tree/master/examples/require.context
 // src:https://stackoverflow.com/questions/39906807/cant-dynamically-pass-relative-src-path-for-imgs-in-vue-js-webpack
 
-let getImage = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
+const getImage = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
 
 export default {
   data () {
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     refactorList (database) {
-      for (let item of database) {
+      for (const item of database) {
         this.list.push({
           src: item.file,
           thumbnail: item.file,
