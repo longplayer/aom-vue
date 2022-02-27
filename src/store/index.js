@@ -10,6 +10,12 @@ import appContact from '@/store/modules/contact.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  state: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
   modules: {
     appHero,
     appEvents,
