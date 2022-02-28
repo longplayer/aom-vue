@@ -15,9 +15,9 @@
 
     <app-waterfall />
 
-    <app-registration
+    <!-- <app-registration
       action="https://art-of-miguel-fernandez.us12.list-manage.com/subscribe/post?u=7064e11cf4419026247cbc5b6&id=98b4888011"
-    ></app-registration>
+    ></app-registration> -->
 
     <app-contact />
   </div>
@@ -27,7 +27,7 @@
 import AppEventItem from '@/components/EventItem'
 import AppWaterfall from '@/components/TheWaterfall'
 import AppContact from '@/components/TheContact'
-import AppRegistration from '@/components/TheNewsletterRegistration'
+// import AppRegistration from '@/components/TheNewsletterRegistration'
 
 export default {
   name: 'home',
@@ -40,8 +40,8 @@ export default {
   components: {
     AppEventItem,
     AppWaterfall,
-    AppContact,
-    AppRegistration
+    AppContact
+    // AppRegistration
   }
 }
 </script>

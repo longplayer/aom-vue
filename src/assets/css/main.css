@@ -8,12 +8,12 @@
     font-family: 'icomoon';
     src:  url('../fonts/icomoon.eot?ftr2l4');
     src:  url('../fonts/icomoon.eot?ftr2l4#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?ftr2l4') format('truetype'),
-      url('../fonts/icomoon.woff?ftr2l4') format('woff'),
-      url('../fonts/icomoon.svg?ftr2l4#icomoon') format('svg');
+        url('../fonts/icomoon.ttf?ftr2l4') format('truetype'),
+        url('../fonts/icomoon.woff?ftr2l4') format('woff'),
+        url('../fonts/icomoon.svg?ftr2l4#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
 .ui-icon{
     /* use !important to prevent issues with browser extensions that change fonts */

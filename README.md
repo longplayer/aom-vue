@@ -1,4 +1,8 @@
-# aom-cli
+# aom-vue
+Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
+
+**Website preview**
+![alt](./_resources/preview.jpg)
 
 ## Project setup
 ```
@@ -19,3 +23,6 @@ npm run build
 ```
 npm run lint
 ```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
