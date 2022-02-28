@@ -1,5 +1,8 @@
 <template>
-  <div class="wt-grid">
+  <div class="wt-grid"
+    ref="$container"
+    @click="atClick($event)"
+  >
     <masonry class="wt-list"
       itemscope
       itemtype="http://schema.org/ImageGallery"
@@ -15,68 +18,13 @@
         ></waterfall-item>
       </template>
     </masonry>
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="pswp__bg"></div>
-      <div class="pswp__scroll-wrap">
-        <div class="pswp__container">
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-        </div>
-        <div class="pswp__ui pswp__ui--hidden">
-          <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-            <span class="rotation-wrapper">
-              <i class="material-icons" v-if="options.rotationOn" @click="rotate(-90)">rotate_left</i>
-              <i class="material-icons" v-if="options.rotationOn" @click="rotate(90)">rotate_right</i>
-            </span>
-
-            <button class="pswp__button pswp__button--share" title="Share"></button>
-            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-            <div class="pswp__preloader">
-              <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-            <div class="pswp__share-tooltip"></div>
-          </div>
-          <button
-            class="pswp__button pswp__button--arrow--left"
-            title="Previous (arrow left)"
-            @click="resetAngle"
-          ></button>
-          <button
-            class="pswp__button pswp__button--arrow--right"
-            title="Next (arrow right)"
-            @click="resetAngle"
-          ></button>
-          <div class="pswp__caption">
-            <div class="pswp__caption__center"></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 // PhotoSwipe implementation - GRID/LAZY
+// Photoswipe options (https://photoswipe.com/documentation/options.html)
 import WaterfallItem from './Item'
-
-// Photoswipe plugin imports
-// Based on vue-picture-swipe (https://github.com/rap2hpoutre/vue-picture-swipe)
-import { initPhotoSwipeFromDOM } from './initPhotoSwipe.js'
-import photoSwipe from 'photoswipe/dist/photoswipe'
-import photoSwipeUIDefault from 'photoswipe/dist/photoswipe-ui-default'
-import 'photoswipe/dist/photoswipe.css'
-import 'photoswipe/dist/default-skin/default-skin.css'
 
 export default {
   props: {
@@ -94,40 +42,34 @@ export default {
           }
         ]
       }
-    },
-
-    // Photoswipe options (https://photoswipe.com/documentation/options.html)
-    options: {
-      default: () => ({}),
-      type: Object
-    }
-
-  },
-  data () {
-    return {
-      ps: {
-        init: initPhotoSwipeFromDOM,
-        core: photoSwipe,
-        ui: photoSwipeUIDefault
-      },
-      angle: 0
     }
   },
   mounted () {
-    this.ps.init('.wt-list', this, this.ps.core, this.ps.ui)
+    this.$photoswipe.listen('beforeChange', (e) => this.beforeChange(e))
+  },
+  beforeDestroy () {
+    this.$photoswipe.unlisten('beforeChange', (e) => this.beforeChange(e))
   },
   methods: {
-    rotate: function (newAngle) {
-      this.angle = this.angle + newAngle
-      this.$el
-        .querySelectorAll('.pswp__img')
-        .forEach(i => (i.style.transform = `rotate(${this.angle}deg)`))
+    atClick (e) {
+      const items = []
+      let index = 0
+      const $el = this.$refs.$container.querySelectorAll('img')
+      for (const img of $el) {
+        if (img instanceof HTMLImageElement) {
+          if (img === e.target) {
+            index = items.length
+          }
+          items.push({
+            $el: img,
+            src: img.src
+          })
+        }
+      }
+      this.$photoswipe.open(items, { index })
     },
-    resetAngle: function () {
-      this.angle = 0
-      this.$el
-        .querySelectorAll('.pswp__img')
-        .forEach(i => (i.style.transform = `rotate(${this.angle}deg)`))
+    beforeChange (args) {
+      console.log('beforeChange', args); // eslint-disable-line
     }
   },
   components: {

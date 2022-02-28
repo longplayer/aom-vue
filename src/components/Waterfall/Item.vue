@@ -15,6 +15,7 @@
         :title="image.title"
         :data-size="'' + image.w + 'x' + image.h"
         itemprop="contentUrl"
+        @click.prevent=""
       >
         <img
           class="wt-img f-img"

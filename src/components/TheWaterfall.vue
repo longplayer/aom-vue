@@ -8,7 +8,6 @@
 
       <waterfall-grid
         :items="waterfall.list"
-        :options="{}"
         :title="waterfall.title"
         :subTitle="waterfall.subTitle"
       ></waterfall-grid>
