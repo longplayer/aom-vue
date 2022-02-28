@@ -11,11 +11,11 @@
       :columnClass="'wt-col'"
     >
       <template v-for="(image, i) in items">
-        <waterfall-item
+        <waterfall-grid-item
           :key="i"
           :image="image"
           :index="i"
-        ></waterfall-item>
+        ></waterfall-grid-item>
       </template>
     </masonry>
   </div>
@@ -24,7 +24,7 @@
 <script>
 // PhotoSwipe implementation - GRID/LAZY
 // Photoswipe options (https://photoswipe.com/documentation/options.html)
-import WaterfallItem from './Item'
+import WaterfallGridItem from './WaterfallGridItem'
 
 export default {
   props: {
@@ -73,7 +73,7 @@ export default {
     }
   },
   components: {
-    WaterfallItem
+    WaterfallGridItem
   }
 }
 </script>

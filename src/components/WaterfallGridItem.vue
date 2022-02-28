@@ -1,5 +1,4 @@
 <template>
-
   <clazy-load
     :src="image.src"
     :data-index="index"
@@ -25,15 +24,12 @@
         >
       </a>
     </transition>
-
     <transition name="fade" slot="placeholder">
       <div class="wt-placeholder">
         <img src='@/assets/img/loading.gif'>
       </div>
     </transition>
-
   </clazy-load>
-
 </template>
 
 <script>
