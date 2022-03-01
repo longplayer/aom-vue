@@ -1,5 +1,9 @@
 # aom-vue
 Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
+- Image slideshow: PhotoSwipe
+  - https://photoswipe.com/documentation/api.html
+  - new: https://github.com/tinymins/vue-photoswipe.js ([demo](https://codesandbox.io/s/gjt8kb?file=/src/App.vue))
+  - previous: https://github.com/rap2hpoutre/vue-picture-swipe
 
 **Website preview**
 ![alt](./_resources/preview.jpg)
