@@ -1,17 +1,24 @@
 <template>
   <section id="app-hero" class="app-hero">
     <div class="h-area">
-      <div class="h-item d-flex flex-wrap" :data-hero-img="loadImage" :data-hero-thumbnail="loadImage">
+      <div
+        class="h-item"
+        :data-hero-img="loadImage"
+        :data-hero-thumbnail="loadImage"
+      >
         <div class="h-caption container">
-          <p class="h-place" v-if="hero.place.length">{{ hero.place }} :</p>
-          <p class="h-title" v-if="hero.title.lenght">{{ hero.title }}</p>
-          <p class="h-date" v-if="hero.date.str.length">{{ hero.date.str }}</p>
-          <base-button v-scroll-to="hero.button.href" :btn="hero.button"
-          ></base-button>
+          <p v-if="hero.place.length" class="h-place">{{ hero.place }} :</p>
+          <p v-if="hero.title.lenght" class="h-title">{{ hero.title }}</p>
+          <p v-if="hero.date.str.length" class="h-date">{{ hero.date.str }}</p>
+
+          <!-- TODO: reactivate v-scroll directive when possible -->
+          <!-- v-scroll-to="hero.button.href" -->
+          <base-button :btn="hero.button"></base-button>
         </div>
         <base-figure class="h-fig">
           <template slot="image">
-            <base-image class="h-img"
+            <base-image
+              class="h-img"
               :src="loadImage"
               :alt="hero.image.alt"
             ></base-image>
@@ -24,62 +31,67 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      hero: this.$store.getters.appHero,
-      img: 'https://placehold.it/1920x1080'
+      img: 'https://placehold.it/1920x1080',
     }
   },
-  created () {
+  computed: {
+    loadImage() {
+      return require('@/assets/img/' + this.img)
+    },
+    showHighlight() {
+      return this.$store.getters['events/getShowHighlight']
+    },
+    hero() {
+      return this.$store.getters['hero/getHeroState']
+    },
+    highlight() {
+      return this.showHighlight
+        ? this.$store.getters['events/getHighlight']
+        : null
+    },
+  },
+  created() {
     this.img = this.hero.image.path
 
     // update button anchor link
-    if (!this.$store.getters.appEvents.showHighlight) {
-      this.$store.dispatch('updateProperty', {
+    if (!this.showHighlight) {
+      this.$store.dispatch('hero/updateProperty', {
         property: 'title',
-        value: ''
+        value: '',
       })
-
-      this.$store.dispatch('updateProperty', {
+      this.$store.dispatch('hero/updateProperty', {
         property: 'place',
-        value: ''
+        value: '',
       })
-
-      this.$store.dispatch('updateProperty', {
+      this.$store.dispatch('hero/updateProperty', {
         property: 'date',
         value: {
           begin: '',
           end: '',
-          str: ''
-        }
+          str: '',
+        },
       })
-
-      this.$store.dispatch('updateButtonProp', {
+      this.$store.dispatch('hero/updateButtonProp', {
         property: 'label',
-        value: 'Voir la selection'
+        value: 'Voir la selection',
       })
-
-      this.$store.dispatch('updateButtonProp', {
+      this.$store.dispatch('hero/updateButtonProp', {
         property: 'href',
-        value: '#app-waterfall'
+        value: '#app-waterfall',
       })
     } else {
-      this.$store.dispatch('updateButtonProp', {
+      this.$store.dispatch('hero/updateButtonProp', {
         property: 'href',
-        value: `#${this.$store.getters.appEvents.highlight.id}`
+        value: `#${this.highlight.id}`,
       })
     }
   },
-  computed: {
-    loadImage () {
-      return require('@/assets/img/' + this.img)
-    }
-  }
 }
 </script>
 
-<style Lang="scss">
-
+<style Lang="postcss">
 /*
 *   main
 * ============================================ */
@@ -92,6 +104,7 @@ export default {
 
 .h-item {
   height: 100%;
+  @apply flex flex-wrap;
 }
 
 .h-fig {
@@ -104,13 +117,13 @@ export default {
   z-index: 5;
 }
 
-.h-img{
+.h-img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.h-caption{
+.h-caption {
   position: relative;
   z-index: 10;
 
@@ -137,25 +150,25 @@ export default {
   font-size: 20px;
   font-weight: 200;
 }
-.h-title{
+.h-title {
   font-size: 32px;
   margin: 10px 0;
   font-weight: 400;
 }
-.h-date{
+.h-date {
   margin: 0 0 20px;
 }
-.h-link{
+.h-link {
   margin: auto;
 }
 
 @media (min-width: 576px) {
-  .h-caption{
+  .h-caption {
     text-align: right;
     max-width: 560px;
     margin: auto 2vw 5vh auto;
   }
-  .h-link{
+  .h-link {
     margin: 0 0 0 auto;
   }
 }
@@ -171,10 +184,7 @@ export default {
   }
 }
 @media (min-width: 992px) {
-
 }
 @media (min-width: 1200px) {
-
 }
-
 </style>
