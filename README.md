@@ -1,5 +1,7 @@
 # aom-vue
+
 Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
+
 - Image slideshow: PhotoSwipe
   - https://photoswipe.com/documentation/api.html
   - new: https://github.com/tinymins/vue-photoswipe.js ([demo](https://codesandbox.io/s/gjt8kb?file=/src/App.vue))
@@ -8,6 +10,8 @@ Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
 ```bash
 npm install photoswipe vue-clazy-load vue-masonry-css vue-scrollto --save
 npm install lodash --save-dev
+npm install -D postcss-import
+ postcss-nested
 ```
 
 **Website preview**
