@@ -1,9 +1,5 @@
 <template>
-  <img
-    :alt="alt"
-    :src="src"
-    :srcset="srcset"
-  >
+  <img :alt="alt" :src="src" :srcset="srcset" />
 </template>
 
 <script>
@@ -11,14 +7,16 @@ export default {
   props: {
     src: {
       type: String,
-      required: true
+      required: true,
     },
     alt: {
-      type: String
+      type: String,
+      default: ''
     },
     srcset: {
-      type: String
-    }
-  }
+      type: String,
+      default: ''
+    },
+  },
 }
 </script>

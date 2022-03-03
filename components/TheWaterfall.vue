@@ -5,11 +5,10 @@
         <h2 class="app-title">{{ waterfall.title }}</h2>
         <p class="app-subtitle">{{ waterfall.subTitle }}</p>
       </header>
-
       <waterfall-grid
         :items="waterfall.list"
         :title="waterfall.title"
-        :subTitle="waterfall.subTitle"
+        :sub-title="waterfall.subTitle"
       ></waterfall-grid>
 
     </article>
@@ -20,13 +19,13 @@
 import WaterfallGrid from '@/components/WaterfallGrid'
 
 export default {
-  data () {
-    return {
-      waterfall: this.$store.getters.appWaterfall
-    }
-  },
   components: {
     WaterfallGrid
+  },
+  data () {
+    return {
+      waterfall: this.$store.getters['waterfall/getWaterfallState']
+    }
   }
 }
 </script>

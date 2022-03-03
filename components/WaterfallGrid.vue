@@ -1,14 +1,16 @@
 <template>
-  <div class="wt-grid"
-    ref="$container"
+  <div
+ref="$container"
+    class="wt-grid"
     @click="atClick($event)"
   >
-    <masonry class="wt-list"
+    <masonry
+class="wt-list"
       itemscope
       itemtype="http://schema.org/ImageGallery"
       :cols="{default: 4, 992: 3, 768: 2, 400: 1}"
       :gutter="{default: '10px', 400: '5px'}"
-      :columnClass="'wt-col'"
+      :column-class="'wt-col'"
     >
       <template v-for="(image, i) in items">
         <waterfall-grid-item
@@ -27,11 +29,14 @@
 import WaterfallGridItem from './WaterfallGridItem'
 
 export default {
+  components: {
+    WaterfallGridItem
+  },
   props: {
     // Default item
     items: {
       type: Array,
-      default: function () {
+      default () {
         return [
           {
             src: 'http://via.placeholder.com/600x400',
@@ -69,17 +74,14 @@ export default {
       this.$photoswipe.open(items, { index })
     },
     beforeChange (args) {
-      console.log('beforeChange', args); // eslint-disable-line
+      // console.log('beforeChange', args); // eslint-disable-line
     }
-  },
-  components: {
-    WaterfallGridItem
   }
 }
 </script>
 
-<style lang="scss">
-
+<style lang="postcss">
+/*
 // .wt-fig {
 //   opacity: 0;
 //   transform: translateZ(0);
@@ -88,7 +90,7 @@ export default {
 //   background: rgba(255, 255, 255, 0.1);
 //   transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
 // }
-
+*/
 .wt-fig {
   width: 100%;
   margin-bottom: 5px;

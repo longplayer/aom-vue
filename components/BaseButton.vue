@@ -1,7 +1,29 @@
 <script>
 export default {
+  props: {
+    btn: {
+      type: Object,
+      required: false,
+      default() {
+        return {
+          class: 'btn',
+          // <button> attributes
+          tag: 'button',
+          autofocus: false,
+          disabled: false,
+          type: 'button',
+          // <a> attributes
+          name: 'default button',
+          label: 'button',
+          href: 'http://www.google.com',
+          title: 'button',
+          target: '_self',
+        }
+      },
+    },
+  },
   // doc: https://vuejs.org/v2/guide/render-function.html
-  render (createElement) {
+  render(createElement) {
     const btnId = this.btn.name
       .toLowerCase()
       .replace(/\W+/g, '-')
@@ -20,33 +42,11 @@ export default {
           href: this.btn.tag === 'a' ? this.btn.href : null,
           target: this.btn.tag === 'a' ? this.btn.target : null,
           title: this.btn.tag === 'a' ? this.btn.title : null,
-          class: this.btn.class
-        }
+          class: this.btn.class,
+        },
       },
       this.btn.label
     )
   },
-  props: {
-    btn: {
-      type: Object,
-      required: false,
-      default: function () {
-        return {
-          class: 'btn',
-          // <button> attributes
-          tag: 'button',
-          autofocus: false,
-          disabled: false,
-          type: 'button',
-          // <a> attributes
-          name: 'default button',
-          label: 'button',
-          href: 'http://www.google.com',
-          title: 'button',
-          target: '_self'
-        }
-      }
-    }
-  }
 }
 </script>

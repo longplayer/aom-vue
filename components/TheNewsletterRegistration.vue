@@ -23,7 +23,7 @@
     </div> -->
 
     <form v-if="!successMessage" @submit.prevent="subscribe($event)">
-      <input v-model="email" name="EMAIL" type="text" placeholder="Email" id="email" class="require email" />
+      <input id="email" v-model="email" name="EMAIL" type="text" placeholder="Email" class="require email" />
       <input type="submit" />
     </form>
     <p v-if="errorMessage && !successMessage" transition="fade">{{ errorMessage }}</p>

@@ -10,12 +10,11 @@
 </template>
 
 <script>
-
 export default {
-  data () {
+  data() {
     return {
-      contact: this.$store.getters.contact
+      contact: this.$store.getters['contact/getContact'],
     }
-  }
+  },
 }
 </script>

@@ -9,7 +9,8 @@
     itemtype="http://schema.org/ImageObject"
   >
     <transition name="fade">
-      <a class="wt-link f-link d-block"
+      <a
+        class="wt-link f-link d-block"
         :href="image.src"
         :title="image.title"
         :data-size="'' + image.w + 'x' + image.h"
@@ -24,7 +25,7 @@
         >
       </a>
     </transition>
-    <transition name="fade" slot="placeholder">
+    <transition slot="placeholder" name="fade">
       <div class="wt-placeholder">
         <img src='@/assets/img/loading.gif'>
       </div>
@@ -36,24 +37,26 @@
 import { VueClazyLoad } from 'vue-clazy-load'
 
 export default {
+  components: {
+    ClazyLoad: VueClazyLoad
+  },
   props: {
     image: {
-      type: Object
+      type: Object,
+      default: () => {},
     },
     index: {
-      type: Number
+      type: Number,
+      default: 0
     }
   },
   created () {
     this.$store.dispatch('updatePath')
-  },
-  components: {
-    ClazyLoad: VueClazyLoad
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .wt-fig{
   position: relative;
   z-index: 0;
