@@ -1,10 +1,11 @@
 <template>
-  <section :id="id" :class="'app-event container ev-item ' + id">
-    <article class="row justify-content-center">
-      <header class="ev-poster col col-9 col-lg-6">
+  <section :id="eid" :class="'app-event container ev-item ' + eid">
+    <article class="ev-article">
+      <header class="ev-poster" :style="cssBackgroundColor">
         <base-figure class="ev-fig">
           <template slot="image">
-            <a class="ev-link d-block"
+            <a
+              class="ev-link d-block"
               :target="button.target"
               :href="button.href"
               :title="title"
@@ -18,39 +19,112 @@
           </template>
         </base-figure>
       </header>
-      <div class="ev-content col col-12 col-lg-6 pt-3">
+      <div class="ev-content">
         <h2 class="app-title">
           <a :title="title" :href="image.url" target="_blank">{{ title }}</a>
         </h2>
         <p class="app-subtitle">
           <strong>{{ date }}</strong>
         </p>
-        <p v-html="desc" class="app-paragraph"></p>
+        <p class="app-paragraph" v-html="desc"></p>
+        <base-button :btn="button"></base-button>
       </div>
-      <footer class="ev-footer col col-12">
-        <base-button
-          :btn="button"
-        ></base-button>
-      </footer>
     </article>
   </section>
 </template>
 
 <script>
+const DEFAULT_IMAGE = 'https://placehold.it/500x320'
+
 export default {
-  props: ['id', 'title', 'desc', 'date', 'button', 'image'],
-  data () {
-    return {
-      img: 'https://placehold.it/500x320'
+  props: {
+    eid: {
+      type: String,
+      default: 'event-0',
+    },
+    title: {
+      type: String,
+      default: 'The title',
+    },
+    desc: {
+      type: String,
+      default: 'The Description...',
+    },
+    date: {
+      type: String,
+      default: '9 dec 1900',
+    },
+    button: {
+      type: Object,
+      default: () => {},
+    },
+    image: {
+      type: Object,
+      default: () => {},
+    },
+    posterBackgroundColor: {
+      type: String,
+      default: '#000'
     }
   },
-  created () {
-    this.img = this.image.path
+  data() {
+    return {
+      img: DEFAULT_IMAGE,
+    }
   },
   computed: {
-    loadImage () {
+    loadImage() {
       return require('@/assets/img/' + this.img)
+    },
+    cssBackgroundColor() {
+      return `background-color:${this.posterBackgroundColor}`
+    }
+  },
+  created() {
+    this.img = this.image.path
+  },
+}
+</script>
+
+<style lang="postcss" scoped>
+.ev-item {
+  @apply container mx-auto;
+
+  .ev-article {
+    @apply grid gap-4 grid-cols-5;
+
+    .ev-poster {
+      @apply col-span-5 md:col-span-3;
+
+      .ev-fig {
+        @apply h-full w-full m-0 overflow-hidden;
+
+        .ev-link {
+          font-size: 0;
+
+          .ev-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .ev-content {
+      @apply pt-3 text-center md:text-left col-span-5 md:col-span-2;
+
+      p {
+        @apply mb-2;
+      }
+
+      .app-title {
+        white-space: nowrap;
+      }
+
+      .btn {
+        @apply md:w-full;
+      }
     }
   }
 }
-</script>
+</style>
