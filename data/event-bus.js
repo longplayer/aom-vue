@@ -9,7 +9,11 @@ const highlight = artup2019
 // FIX: issue on webpack compilation
 // doc: https://github.com/webpack/webpack/tree/master/examples/require.context
 // src:https://stackoverflow.com/questions/39906807/cant-dynamically-pass-relative-src-path-for-imgs-in-vue-js-webpack
-const getSculpture = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
+const getSculpture = require.context(
+  '@/assets/img/art/sculpture/',
+  false,
+  /\.jpg$/
+)
 
 export const EventBus = new Vue({
   data: {
@@ -20,24 +24,24 @@ export const EventBus = new Vue({
       date: {
         begin: '15/03/2018',
         end: '18/03/2018',
-        str: '15 - 18 mars 2018'
+        str: '15 - 18 mars 2018',
       },
       button: {
         tag: 'a',
         name: 'hero button',
         label: 'Information',
         href: '#',
-        class: 'btn btn-white h-link'
+        class: 'btn btn-white h-link',
       },
       image: {
         path: 'hero/img-02.jpg',
-        alt: 'It\'s a robot'
-      }
+        alt: "It's a robot",
+      },
     },
     appWaterfall: {
       title: 'Mes travaux',
       subTitle: 'Selection de mes dernières oeuvres',
-      list: []
+      list: [],
     },
     appContact: {
       title: 'Vous pouvez toujours me contacter',
@@ -46,22 +50,17 @@ export const EventBus = new Vue({
         name: 'contact button',
         label: 'Envoyer un email',
         href: 'mailto:a_normal_graffizm@hotmail.com',
-        class: 'btn btn-black'
-      }
+        class: 'btn btn-black',
+      },
     },
     appFooter: {},
     appEvents: {
       showHighlight: true,
-      highlight: highlight,
-      list: []
-    }
+      highlight,
+      list: [],
+    },
   },
-  methods: {
-    loadImage (file) {
-      return getSculpture('./' + file)
-    }
-  },
-  created () {
+  created() {
     // Prepare images list
     for (const item of sculpture) {
       this.appWaterfall.list.push({
@@ -70,7 +69,7 @@ export const EventBus = new Vue({
         w: item.size[0],
         h: item.size[1],
         alt: item.alt,
-        isStatic: false
+        isStatic: false,
       })
     }
 
@@ -84,5 +83,10 @@ export const EventBus = new Vue({
       this.appHero.place = ''
       this.appHero.date.str = ''
     }
-  }
+  },
+  methods: {
+    loadImage(file) {
+      return getSculpture('./' + file)
+    },
+  },
 })

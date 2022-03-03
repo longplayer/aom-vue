@@ -9,10 +9,10 @@ export default {
     href: 'https://lille.art-up.com/',
     class: 'btn btn-black',
     label: 'Venez Nombreux',
-    target: '_blank'
+    target: '_blank',
   },
   image: {
     path: 'event/artup-2019.jpg',
-    alt: 'ArtUp\'s logo'
-  }
+    alt: "ArtUp's logo",
+  },
 }
