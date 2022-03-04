@@ -1,7 +1,3 @@
-/* TODO: remove all bootstrap dependencies, replace by tailwindcss */
-@import "./bootstrap/bootstrap-reboot.css";
-@import "./bootstrap/bootstrap-grid.css";
-
 :root {
   --color-black: #000;
   --color-white: #fff;
