@@ -9,7 +9,7 @@
  */
 /* eslint no-param-reassign: "off" */
 
-import PhotoSwipe from '~/PhotoSwipe';
+import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default';
 import PswpVueDefault from './pswpElement';
 

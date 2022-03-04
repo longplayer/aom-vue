@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import PhotoSwipe from '../PhotoSwipe'
+import photoswipe from '../PhotoSwipe/'
 
-Vue.use(PhotoSwipe)
+Vue.use(photoswipe)
