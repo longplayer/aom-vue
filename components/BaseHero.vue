@@ -10,10 +10,7 @@
           <p v-if="hero.place.length" class="h-place">{{ hero.place }} :</p>
           <p v-if="hero.title.lenght" class="h-title">{{ hero.title }}</p>
           <p v-if="hero.date.str.length" class="h-date">{{ hero.date.str }}</p>
-
-          <!-- TODO: reactivate v-scroll directive when possible -->
-          <!-- v-scroll-to="hero.button.href" -->
-          <base-button :btn="hero.button"></base-button>
+          <base-button v-scroll-to="hero.button.href" :btn="hero.button"></base-button>
         </div>
         <base-figure class="h-fig">
           <template slot="image">

@@ -14,7 +14,7 @@
       ></event-item>
     </template>
 
-    <!-- <the-waterfall /> -->
+    <the-waterfall />
 
     <the-newsletter-registration
       action="https://art-of-miguel-fernandez.us12.list-manage.com/subscribe/post?u=7064e11cf4419026247cbc5b6&id=98b4888011"
