@@ -16,11 +16,14 @@
 
     <the-waterfall />
 
-    <the-newsletter-registration
-      action="https://art-of-miguel-fernandez.us12.list-manage.com/subscribe/post?u=7064e11cf4419026247cbc5b6&id=98b4888011"
-    ></the-newsletter-registration>
+    <!-- <the-newsletter-registration
+      :action="formActionUrl"
+    ></the-newsletter-registration> -->
 
-    <the-contact />
+    <the-contact 
+      title="N'hesitez pas à me contactez"
+      :button="contactButton"
+    />
   </div>
 </template>
 
@@ -30,6 +33,15 @@ export default {
   computed: {
     showHighlight() { return this.$store.getters['events/getShowHighlight'] },
     theEvent() { return this.$store.getters['events/getHighlight'] },
+    // formActionUrl() { return this.$nuxt.context.env.APP_MAILCHIMP_FORM_ACTION },
+    contactButton() {
+      return {
+        tag: 'a',
+        name: 'contact button',
+        label: 'Envoyer un email',
+        class: 'btn btn-black',
+        href: `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}`
+    }},
   }
 }
 </script>
