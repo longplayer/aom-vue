@@ -7,11 +7,16 @@ Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
   - new: https://github.com/tinymins/vue-photoswipe.js ([demo](https://codesandbox.io/s/gjt8kb?file=/src/App.vue))
   - previous: https://github.com/rap2hpoutre/vue-picture-swipe
 
+- Postcss
+  https://nuxtjs.org/docs/features/configuration/#postcss-plugins
+  https://tailwindcss.nuxtjs.org/examples/postcss-plugin/
+  https://github.com/postcss/postcss/blob/main/docs/plugins.md
+
 ```bash
-npm install photoswipe vue-clazy-load vue-masonry-css vue-scrollto --save
-npm install lodash --save-dev
+npm install --save photoswipe vue-clazy-load vue-masonry-css vue-scrollto
+npm install --save-dev lodash
 npm install -D postcss-import
- postcss-nested
+npm install -D @nuxtjs/dotenv
 ```
 
 **Website preview**

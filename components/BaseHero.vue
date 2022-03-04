@@ -12,6 +12,7 @@
           <p v-if="hero.date.str.length" class="h-date">{{ hero.date.str }}</p>
           <base-button v-scroll-to="hero.button.href" :btn="hero.button"></base-button>
         </div>
+
         <base-figure class="h-fig">
           <template slot="image">
             <base-image
@@ -88,51 +89,67 @@ export default {
 }
 </script>
 
-<style Lang="postcss">
-/*
-*   main
-* ============================================ */
+<style lang="postcss">
 
-.h-area {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+.app-hero {
+
+  .h-area {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    .h-item {
+      height: 100%;
+      @apply flex flex-wrap;
+
+      .h-caption {
+        position: relative;
+        z-index: 10;
+
+        width: 100%;
+        margin: auto 0 10vh 0;
+
+        color: #fff;
+        font-size: 36px;
+        line-height: 120%;
+        text-align: center;
+        text-shadow: 1px 1px #000;
+      }
+
+      .h-fig {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        z-index: 5;
+
+        .h-img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        &::after {
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgb(0,0,0);
+          background: linear-gradient(350deg, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+        }
+
+      }
+
+    }
+  }
+
 }
 
-.h-item {
-  height: 100%;
-  @apply flex flex-wrap;
-}
-
-.h-fig {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  z-index: 5;
-}
-
-.h-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.h-caption {
-  position: relative;
-  z-index: 10;
-
-  width: 100%;
-  margin: auto 0 10vh 0;
-
-  color: #fff;
-  font-size: 36px;
-  line-height: 120%;
-  text-align: center;
-  text-shadow: 1px 1px #000;
-}
 
 .h-title,
 .h-place,
@@ -160,7 +177,7 @@ export default {
 }
 
 @media (min-width: 576px) {
-  .h-caption {
+  .app-hero .h-area .h-item .h-caption {
     text-align: right;
     max-width: 560px;
     margin: auto 2vw 5vh auto;

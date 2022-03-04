@@ -1,5 +1,5 @@
 <template>
-  <section id="app-waterfall" class="app-waterfall container">
+  <section id="app-waterfall" class="app-waterfall">
     <article>
       <header>
         <h2 class="app-title">{{ waterfall.title }}</h2>
@@ -34,3 +34,14 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.app-waterfall {
+  transition: all 0.6s 0.2s ease;
+  @apply container mx-auto p-6;
+
+  header {
+    text-align: center;
+  }
+}
+</style>

@@ -5,7 +5,7 @@
         <base-figure class="ev-fig">
           <template slot="image">
             <a
-              class="ev-link d-block"
+              class="ev-link block"
               :target="button.target"
               :href="button.href"
               :title="title"
@@ -21,7 +21,7 @@
       </header>
       <div class="ev-content">
         <h2 class="app-title">
-          <a :title="title" :href="image.url" target="_blank">{{ title }}</a>
+          {{ title }}
         </h2>
         <p class="app-subtitle">
           <strong>{{ date }}</strong>
@@ -91,7 +91,7 @@ export default {
   @apply container mx-auto;
 
   .ev-article {
-    @apply grid gap-4 grid-cols-5;
+    @apply grid gap-4 grid-cols-5 pt-24;
 
     .ev-poster {
       @apply col-span-5 md:col-span-3;

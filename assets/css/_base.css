@@ -58,75 +58,16 @@ li {
 /*
 *   spacings
 * ============================================ */
-.app-footer {
-  margin-top: 100px;
-}
-
 .app-waterfall article,
-.app-contact article /*,
-.app-event article*/ {
+.app-contact article {
   padding-top: 100px;
 }
 
 .app-contact header,
-/*.app-event header,
-.app-event .ev-content, */
 .app-waterfall header {
   padding-bottom: 50px;
 }
 
-/*
-*   main
-* ============================================ */
-
-.app-main {
-}
-
-/*
-*   logo
-* ============================================ */
-
-
-/*
-*   Main menu
-* ============================================ */
-
-
-/*
-*   social menu
-* ============================================ */
-
-/*
-*   event
-* ============================================ */
-
-/*
-*   waterfall
-* ============================================ */
-.app-waterfall {
-  transition: all 0.6s 0.2s ease;
-}
-
-.app-waterfall header {
-  text-align: center;
-}
-
-.app-waterfall article {
-}
-
-.wt-grid {
-}
-
-.wt-fig {
-  animation: anim 0.8s ease-in-out;
-  width: 100%;
-  margin: 0;
-}
-
-.wt-img {
-  width: 100%;
-  height: 100%;
-}
 
 /*
 *   contact me
@@ -205,10 +146,6 @@ li {
   .logo {
     font-size: 20px;
   }
-
-   .wt-fig {
-     width: 46%;
-   }
 }
 
 @media (min-width: 768px) {
@@ -244,10 +181,6 @@ li {
     line-height: 1.6;
     font-weight: 200;
   }
-
-   .wt-fig {
-     width: 31%;
-   }
 
   .ev-content p,
   .app-event .app-title {

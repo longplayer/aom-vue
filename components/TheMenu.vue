@@ -1,11 +1,13 @@
 <template>
-  <!-- Menu component -->
   <div id="app-menu" class="app-menu">
+    <div class="logo">
+      <span class="logo-sup">Age of Robots of</span>
+      <span class="logo-sub">The art of Miguel Fernandez</span>
+    </div>
     <nav class="m-nav">
       <ul class="m-list">
-        <li class="m-item logo">
-          <span class="logo-sup">Age of Robots of</span><br/>
-          <span class="logo-sub">The art of Miguel Fernandez</span>
+        <li class="m-item">
+          <a v-scroll-to="'#app-waterfall'" href="#">Travaux</a>
         </li>
       </ul>
     </nav>
@@ -19,16 +21,9 @@
       </li>
       <li class="sc-item">
         <a
-          class="ui-icon icon-twitter"
-          title="Partager sur Twitter"
-          href=""
-        ></a>
-      </li>
-      <li class="sc-item">
-        <a
           class="ui-icon icon-instagram"
           title="Suivez moi Instagram"
-          href="https://www.instagram.com/age_of_robots/"
+          :href="instagramAccountUrl"
           target="_blank"
         ></a>
       </li>
@@ -36,7 +31,7 @@
         <a
           class="ui-icon icon-mail_outline"
           title="Contacez-moi"
-          href="mailto:a_normal_graffizm@hotmail.com"
+          :href="mailTo"
         ></a>
       </li>
     </ul>
@@ -44,68 +39,122 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    mailTo() { return `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}` },
+    instagramAccountUrl() { return `mailto:${this.$nuxt.context.env.APP_INSTAGRAM_ACCOUNT_URL}` },
+  }
+}
 </script>
 
 <style lang="postcss">
-
-.logo {
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 300;
-
-  font-size: 14px;
-  line-height: 1.5;
-}
-
 .app-menu {
   height: 100%;
   @apply flex;
-}
-.app-menu a {
-  color: #fff;
-}
-.app-menu a:hover,
-.app-menu a:active,
-.app-menu a:focus {
-  text-decoration: none;
-}
 
-.m-nav {
-  flex: 1 1 auto;
-  display: flex;
-}
-.m-list {
-  margin: auto auto auto 0;
-  flex: 1 1 auto;
-  @apply flex flex-wrap;
-}
-.m-item {
-  list-style-type: none;
-}
+  a {color: #fff;}
+  a:hover,
+  a:active,
+  a:focus {text-decoration: none;}
 
+  .logo {
+    flex: 0 0 auto;
+    color: #fff;
+    height: auto;
+    margin: auto 0;
+    @apply p-1;
+    
+    &-sup {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: .25rem;
+    }
 
-.sc-list {
-  margin: auto;
-}
+    &-sub {
+      display: block;
+      font-weight: 300;
+      font-size: .75rem;
+      line-height: .75rem;
+    }
+  }
 
-.sc-item {
-  margin: auto;
-  text-align: center;
-  width: 16px;
-  height: 16px;
-}
+  .m-nav {
+    flex: .1 0 auto;
+    margin: auto 1rem auto auto;
 
-.sc-list .ui-icon {
-  line-height: 16px;
-}
+    .m-list {
+      margin: auto 0;
+      @apply flex flex-wrap justify-center;
 
-.sc-list .ui-icon::before {
-  font-size: 0.8em;
-}
+      .m-item {
+        list-style-type: none;
+        font-size: .8rem;
+        transition: all 300ms ease-in 100ms;
+        @apply p-2 relative overflow-hidden;
 
-.sc-list li:nth-child(1),
-.sc-list li:nth-child(2) {
-  display: none;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background-color: #fff;
+          transform: translate(-101%, 90%);
+          transition: transform 300ms ease-in;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          &::after {
+            transform: translate(0, 90%);
+          }
+        }
+      }
+    }
+  }
+
+  .sc-list {
+    flex: .1 0 auto;
+    margin: auto 0 auto 0;
+    @apply flex flex-wrap justify-between;
+
+    .sc-item {
+      margin: auto;
+      text-align: center;
+      width: 1rem;
+      height: 1rem;
+
+      &:nth-child(1) { display: none; }
+
+      .ui-icon {
+        line-height: 1rem;
+
+        &::before {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  @screen md {
+    .m-nav {
+      .m-list {
+        .m-item {
+        }
+      }
+    }
+    .sc-list {
+      .sc-item {
+        .ui-icon {
+        }
+      }
+    }
+  }
 }
 </style>

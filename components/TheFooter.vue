@@ -1,10 +1,8 @@
 <template>
-  <footer id="app-footer" class="app-footer">
-    <section class="footer container">
+  <footer id="the-footer" class="the-footer">
+    <section class="footer-section">
       <p>
-        Copyright {{ year }} Miguel Fernandez -
-        <!-- <span class="ui-icon icon-mail_outline" title="Contacez-moi" href="mailto:a_normal_graffizm@hotmail.com"></span> <a href="mailto:a_normal_graffizm@hotmail.com" target="_blank" title="Contactez moi">a_normal_graffizm@hotmail.com</a> -  -->made
-        with <span class="emoji e-heart">❤️</span> by longplayer
+        Copyright {{ year }} Miguel Fernandez - made with <span class="emoji e-heart">❤️</span> by longplayer
       </p>
     </section>
   </footer>
@@ -21,56 +19,30 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-footer {
-  height: 100px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-}
+.the-footer {
 
-footer {
-  background: #1d1d1b;
-  border-top: 1px solid #eee;
-}
+  p { margin: 0; }
+  a,
+  a:link,
+  a:visited { color: #fff; }
 
-footer a,
-footer a:link,
-footer a:visited {
-  color: #fff;
-}
-
-
-.app-footer {
-  height: auto;
   background: #1d1d1b;
   border-top: 1px solid #eee;
   color: #fff;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-}
+  @apply w-full h-24 mt-24 flex text-center text-xs tracking-wider;
 
-.footer.container {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.app-footer .ev-item {
-  margin-bottom: 40px;
-}
+  .footer-section {
+    @apply container m-auto p-4;
+    
+    .emoji {
+      font-size: 10px;
+    }
+  }
+  .ev-item {
+    margin-bottom: 2.5rem;
+  }
 
-.app-footer .emoji {
-  font-size: 10px;
-}
 
-.app-footer a,
-.app-footer a:link,
-.app-footer a:visited {
-  color: #fff;
 }
-
-.footer p {
-  margin: 0;
-}
-
 
 </style>

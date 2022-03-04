@@ -10,7 +10,7 @@
   >
     <transition name="fade">
       <a
-        class="wt-link f-link d-block"
+        class="wt-link f-link block"
         :href="image.src"
         :title="image.title"
         :data-size="'' + image.w + 'x' + image.h"
