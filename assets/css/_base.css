@@ -1,8 +1,6 @@
-/*
-$colBlack: #000;
-$colWhite: #fff;
-$colDebug: #906;
-*/
+/* TODO: remove all bootstrap dependencies, replace by tailwindcss */
+@import "./bootstrap/bootstrap-reboot.css";
+@import "./bootstrap/bootstrap-grid.css";
 
 :root {
   --color-black: #000;
@@ -69,14 +67,14 @@ li {
 }
 
 .app-waterfall article,
-.app-contact article,
-.app-event article {
+.app-contact article /*,
+.app-event article*/ {
   padding-top: 100px;
 }
 
 .app-contact header,
-.app-event header,
-.app-event .ev-content,
+/*.app-event header,
+.app-event .ev-content, */
 .app-waterfall header {
   padding-bottom: 50px;
 }
@@ -105,48 +103,6 @@ li {
 /*
 *   event
 * ============================================ */
-.app-event footer,
-.app-event .app-title {
-  text-align: center;
-}
-
-.event-item {
-}
-
-.ev-fig {
-  margin: 0;
-  overflow: hidden;
-}
-
-.ev-img {
-  width: 100%;
-  height: auto;
-}
-
-.ev-link {
-  font-size: 0;
-}
-
-.ev-content p {
-  text-align: center;
-}
-
-.ev-content p:last-child {
-  margin-bottom: 0;
-}
-
-.ev-content .app-title {
-  white-space: nowrap;
-}
-
-.ev-content .btn {
-  margin: auto;
-}
-
-/*rules optimisation*/
-.section.event-st-art a {
-  white-space: nowrap;
-}
 
 /*
 *   waterfall

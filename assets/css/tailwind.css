@@ -6,3 +6,10 @@
 
 @import "tailwindcss/utilities";
 @import "./_utilities.css";
+
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-debug: #906;
+}
+
