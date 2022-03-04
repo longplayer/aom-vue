@@ -26,6 +26,11 @@ export default {
     return {
       waterfall: this.$store.getters['waterfall/getWaterfallState']
     }
+  },
+  created() {
+    if(this.waterfall.list.length === 0) {
+      this.$store.dispatch('waterfall/initArtworks')
+    }
   }
 }
 </script>

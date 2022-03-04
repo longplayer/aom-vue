@@ -51,7 +51,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('updatePath')
+    this.$store.dispatch('waterfall/updatePath')
   }
 }
 </script>
