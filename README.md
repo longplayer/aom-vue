@@ -1,6 +1,7 @@
 # aom-vue
 
 Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
+- Tailwind CSS ([v2.2.19](https://v2.tailwindcss.com/docs))
 
 - Image slideshow: PhotoSwipe
   - https://photoswipe.com/documentation/api.html
