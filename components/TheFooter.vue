@@ -21,15 +21,8 @@ export default {
 <style lang="postcss" scoped>
 .the-footer {
 
-  p { margin: 0; }
-  a,
-  a:link,
-  a:visited { color: #fff; }
-
-  background: #1d1d1b;
   border-top: 1px solid #eee;
-  color: #fff;
-  @apply w-full h-24 mt-24 flex text-center text-xs tracking-wider;
+  @apply w-full h-24 mt-24 flex text-center text-xs tracking-wider bg-gray-900 text-gray-500;
 
   .footer-section {
     @apply container m-auto p-4;

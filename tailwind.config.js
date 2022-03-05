@@ -1,8 +1,27 @@
+const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: colors.gray,
+      },
+      fontFamily: {
+        sans: [
+          'Lato',
+          ...defaultTheme.fontFamily.sans,
+        ]
+      },
+      screens: {
+        'x2sm': '320px',
+        // => @media (min-width: 320px) { ... }
+        'xsm': '576px',
+        // => @media (min-width: 576px) { ... }
+      }
+    },
   },
   variants: {
     extend: {},
@@ -16,3 +35,11 @@ module.exports = {
     `nuxt.config.{js,ts}`,
   ],
 }
+
+
+// original custom breakpoints:
+// 320px
+// 576px
+// 768px
+// 992px
+// 1200px

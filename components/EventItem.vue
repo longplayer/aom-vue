@@ -101,11 +101,19 @@ export default {
 
         .ev-link {
           font-size: 0;
-
+          height: 100%;
+          @apply block;
           .ev-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            transition: transform 250ms ease-in-out;
+            transform: scale(.8);
+          }
+          &:hover {
+            .ev-img {
+              transform: scale(1);
+            }
           }
         }
       }

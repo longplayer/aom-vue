@@ -28,6 +28,6 @@ export default {
 
 <style lang="postcss" scoped>
 .app-contact {
-  @apply container;
+  @apply container mx-auto;
 }
 </style>

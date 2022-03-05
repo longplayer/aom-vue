@@ -142,7 +142,37 @@ export default {
     }
   }
 
+  @screen x2sm {
+    .m-list {
+      flex: 0 0 auto;
+    }
+
+    .sc-list {
+      margin: 0 0 0 auto;
+      
+      .sc-item {
+        width: 1rem;
+        height: 1rem;
+        
+        .ui-icon {
+          line-height: 1rem;
+          
+          &::before {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  @screen xsm {
+    .sc-list {
+      width: 64px;
+      margin: 0;
+    }
+  }
   @screen md {
+    .logo {}
     .m-nav {
       .m-list {
         .m-item {

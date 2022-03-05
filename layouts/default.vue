@@ -15,20 +15,18 @@
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  @apply text-gray-700;
+
+  .app-header {
+    position: absolute;
+    top: 0;
+    height: 60px;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    width: 100%;
+    padding: 0 5%;
+    z-index: 100;
+    transition: height 0.2s ease;
+  }
 }
-
-
-.app-header {
-  position: absolute;
-  top: 0;
-  height: 60px;
-  border-bottom: 1px solid #fff;
-  background-color: transparent;
-  width: 100%;
-  padding: 0 5%;
-  z-index: 100;
-  transition: height 0.2s ease;
-}
-
 </style>

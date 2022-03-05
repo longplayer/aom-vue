@@ -107,10 +107,11 @@ export default {
         z-index: 10;
 
         width: 100%;
-        margin: auto 0 10vh 0;
+        margin: auto;
+        margin-bottom: 10vh;
 
         color: #fff;
-        font-size: 36px;
+        font-size: 2rem;
         line-height: 120%;
         text-align: center;
         text-shadow: 1px 1px #000;
@@ -144,39 +145,35 @@ export default {
         }
 
       }
-
     }
   }
 
+  .h-title,
+  .h-place,
+  .h-date,
+  .h-link {
+    color: inherit;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .h-place,
+  .h-date {
+    font-size: 1.25rem;
+    font-weight: 200;
+  }
+  .h-title {
+    font-size: 2rem;
+    margin: 10px 0;
+    font-weight: 400;
+  }
+  .h-date {
+    margin: 0 0 20px;
+  }
+  .h-link {
+    margin: auto;
+  }
 }
-
-
-.h-title,
-.h-place,
-.h-date,
-.h-link {
-  color: inherit;
-  line-height: 1.2;
-  margin: 0;
-}
-.h-place,
-.h-date {
-  font-size: 20px;
-  font-weight: 200;
-}
-.h-title {
-  font-size: 32px;
-  margin: 10px 0;
-  font-weight: 400;
-}
-.h-date {
-  margin: 0 0 20px;
-}
-.h-link {
-  margin: auto;
-}
-
-@media (min-width: 576px) {
+@screen xsm {
   .app-hero .h-area .h-item .h-caption {
     text-align: right;
     max-width: 560px;
@@ -186,19 +183,16 @@ export default {
     margin: 0 0 0 auto;
   }
 }
-@media (min-width: 768px) {
+
+@screen md {
   .h-title {
-    font-size: 48px;
+    font-size: 3rem;
   }
 
   .h-place,
   .h-date {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 300;
   }
-}
-@media (min-width: 992px) {
-}
-@media (min-width: 1200px) {
 }
 </style>
