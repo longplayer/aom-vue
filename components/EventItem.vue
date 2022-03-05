@@ -5,7 +5,8 @@
         <base-figure class="ev-fig">
           <template slot="image">
             <a
-              class="ev-link block"
+              class="ev-link"
+              rel="noopener noreferer"
               :target="button.target"
               :href="button.href"
               :title="title"
@@ -14,7 +15,7 @@
                 :src="loadImage"
                 :alt="image.alt"
                 class="ev-img"
-              ></base-image>
+              />
             </a>
           </template>
         </base-figure>

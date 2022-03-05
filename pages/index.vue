@@ -30,18 +30,21 @@
 <script>
 export default {
   name: 'HomePage',
-  computed: {
-    showHighlight() { return this.$store.getters['events/getShowHighlight'] },
-    theEvent() { return this.$store.getters['events/getHighlight'] },
-    // formActionUrl() { return this.$nuxt.context.env.APP_MAILCHIMP_FORM_ACTION },
-    contactButton() {
-      return {
+  data() {
+    return {
+      contactButton: {
         tag: 'a',
         name: 'contact button',
         label: 'Envoyer un email',
         class: 'btn btn-black',
         href: `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}`
-    }},
+      }
+    }
+  },
+  computed: {
+    showHighlight() { return this.$store.getters['events/getShowHighlight'] },
+    theEvent() { return this.$store.getters['events/getHighlight'] },
+    // formActionUrl() { return this.$nuxt.context.env.APP_MAILCHIMP_FORM_ACTION },
   }
 }
 </script>

@@ -7,32 +7,56 @@
     <nav class="m-nav">
       <ul class="m-list">
         <li class="m-item">
-          <a v-scroll-to="'#app-waterfall'" href="#">Travaux</a>
+          <base-button
+            v-scroll-to="'#app-waterfall'"
+            :btn="{
+              name: 'go to travaux',
+              label: 'Mes travaux',
+              tag: 'a',
+              href: '#app-waterfall'
+            }"
+          />
         </li>
       </ul>
     </nav>
     <ul class="sc-list">
       <li class="sc-item">
-        <a
-          class="ui-icon icon-facebook"
-          title="Partager sur Facebook"
-          href=""
-        ></a>
+        <base-button
+          :btn="{
+            tag: 'a',
+            name: 'partage facebook',
+            label: 'Mes travaux',
+            title: 'Suivez moi sur Facebook',
+            class: 'ui-icon icon-facebook',
+            target: '_blank',
+            href: '',
+          }"
+        />
       </li>
       <li class="sc-item">
-        <a
-          class="ui-icon icon-instagram"
-          title="Suivez moi Instagram"
-          :href="instagramAccountUrl"
-          target="_blank"
-        ></a>
+        <base-button
+          :btn="{
+            tag: 'a',
+            name: 'partage instagram',
+            label: '',
+            title: 'Suivez moi sur Instagram',
+            class: 'ui-icon icon-instagram',
+            target: '_blank',
+            href: instagramAccountUrl,
+          }"
+        />
       </li>
       <li class="sc-item">
-        <a
-          class="ui-icon icon-mail_outline"
-          title="Contacez-moi"
-          :href="mailTo"
-        ></a>
+        <base-button
+          :btn="{
+            tag: 'a',
+            name: 'contact mail',
+            label: '',
+            title: 'Contacez-moi',
+            class: 'ui-icon icon-mail_outline',
+            href: mailTo,
+          }"
+        />
       </li>
     </ul>
   </div>
@@ -42,7 +66,7 @@
 export default {
   computed: {
     mailTo() { return `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}` },
-    instagramAccountUrl() { return `mailto:${this.$nuxt.context.env.APP_INSTAGRAM_ACCOUNT_URL}` },
+    instagramAccountUrl() { return `${this.$nuxt.context.env.APP_INSTAGRAM_ACCOUNT_URL}` },
   }
 }
 </script>

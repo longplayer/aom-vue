@@ -2,7 +2,7 @@
   <footer id="the-footer" class="the-footer">
     <section class="footer-section">
       <p>
-        Copyright {{ year }} Miguel Fernandez - made with <span class="emoji e-heart">❤️</span> by longplayer
+        Copyright {{ year }} Miguel Fernandez - made with <span class="emoji e-heart">❤️</span> by <base-button :btn="lpButton" />
       </p>
     </section>
   </footer>
@@ -13,6 +13,15 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
+      lpButton: {
+        name: 'contact-lp',
+        title: 'longplayer on Github',
+        label: 'longplayer',
+        href: 'https://github.com/longplayer',
+        tag: 'a',
+        class: 'link',
+        target: '_blank'
+      }
     }
   },
 }
