@@ -1,7 +1,7 @@
 import highlight from '@/data/events/artup19.js'
 
 export const state = () => ({
-  showHighlight: true,
+  showHighlight: false,
   highlight,
   list: [],
 })
