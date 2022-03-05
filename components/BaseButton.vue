@@ -43,6 +43,7 @@ export default {
           target: this.btn.tag === 'a' ? this.btn.target : null,
           title: this.btn.tag === 'a' ? this.btn.title : null,
           class: this.btn.class,
+          rel: this.btn.tag === 'a' && this.btn.target === '_blank' ? 'noopener noreferer' : null
         },
       },
       this.btn.label
