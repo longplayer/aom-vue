@@ -35,7 +35,7 @@
 </template>
 
 <script>
-const DEFAULT_IMAGE = 'https://placehold.it/500x320'
+const DEFAULT_IMAGE = 'https://via.placeholder.com/500x320'
 
 export default {
   props: {

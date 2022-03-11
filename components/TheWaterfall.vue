@@ -5,12 +5,7 @@
         <h2 class="app-title">{{ waterfall.title }}</h2>
         <p class="app-subtitle">{{ waterfall.subTitle }}</p>
       </header>
-      <waterfall-grid
-        :items="waterfall.list"
-        :title="waterfall.title"
-        :sub-title="waterfall.subTitle"
-      ></waterfall-grid>
-
+      <waterfall-grid :items="waterfall.list" />
     </article>
   </section>
 </template>
