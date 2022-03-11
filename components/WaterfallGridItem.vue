@@ -49,9 +49,6 @@ export default {
       type: Number,
       default: 0
     }
-  },
-  created () {
-    this.$store.dispatch('waterfall/updatePath')
   }
 }
 </script>

@@ -14,9 +14,10 @@ export const getters = {
 export const mutations = {
   INIT_ARTWORKS(state, list) {
     for (const item of list) {
+      const src = getFile('./' + item.file)
       state.list.push({
-        src: item.file,
-        thumbnail: item.file,
+        src,
+        thumbnail: src,
         w: item.size[0],
         h: item.size[1],
         alt: item.alt,
