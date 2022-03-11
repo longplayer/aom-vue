@@ -14,8 +14,9 @@
       ></event-item>
     </template>
 
-    <the-waterfall />
+    <the-gridview />
 
+    <!-- <the-waterfall /> -->
     <!-- <the-newsletter-registration
       :action="formActionUrl"
     ></the-newsletter-registration> -->

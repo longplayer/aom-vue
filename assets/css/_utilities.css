@@ -96,6 +96,10 @@
   font-weight: 200;
 }
 
+/* object fit rules */
+.container-image-cover img {
+  @apply w-full h-full object-cover;
+}
 
 /*
 *   animation
