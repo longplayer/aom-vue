@@ -58,7 +58,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.image)
     if(this.image) {
       this.isLoaded = true
     }

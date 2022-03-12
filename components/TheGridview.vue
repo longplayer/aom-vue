@@ -15,7 +15,7 @@
           <button class="gridview__link">
             <base-clasy-loader
               :image="list[0]"
-              :index="1"
+              :index="0"
               class="container-image-cover"
             />
           </button>
@@ -23,7 +23,7 @@
         <li class="gridview__item">
           <button class="gridview__link">
             <base-clasy-loader
-              :image="list[0]"
+              :image="list[1]"
               :index="1"
               class="container-image-cover"
             />
@@ -94,11 +94,11 @@ export default {
       .map((index) => this.waterfall.list[index])
   },
   mounted () {
-    console.log(this.$photoswipe)
-    // this.$photoswipe.listen('beforeChange', (e) => this.beforeChange(e))
+    // console.log(this.$photoswipe)
+    this.$photoswipe.listen('beforeChange', (e) => this.beforeChange(e))
   },
   beforeDestroy () {
-    // this.$photoswipe.unlisten('beforeChange', (e) => this.beforeChange(e))
+    this.$photoswipe.unlisten('beforeChange', (e) => this.beforeChange(e))
   },
   methods: {
     atClick (e) {
@@ -135,10 +135,10 @@ export default {
         list.push(randomIndex)
       }
       return list
-    }
-    // beforeChange (args) {
-    //   // console.log('beforeChange', args); // eslint-disable-line
-    // },
+    },
+    beforeChange (args) {
+      // console.log('beforeChange', args); // eslint-disable-line
+    },
   },
 
 }
