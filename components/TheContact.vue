@@ -7,6 +7,7 @@
       <template v-if="button !== null">
         <base-button :btn="button"></base-button>
       </template>
+      <p class="newsletter-invitation">Ou bien, vous pouvez aussi vous <a href="#newsletter-registration" @click.prevent="$emit('openModal')">inscrire à ma newsletter</a> pour reçevoir mon actualité par email. Ainsi, vous serez aux courant de mes prochains évènements!</p>
     </article>
   </section>
 </template>
@@ -23,11 +24,21 @@ export default {
       default: null
     },
   },
+  emits: ['openModal'],
 }
 </script>
 
 <style lang="postcss" scoped>
 .app-contact {
   @apply container mx-auto;
+
+  .newsletter-invitation {
+    max-width: 720px;
+    @apply mt-12 mx-auto;
+
+    a {
+      font-weight: 700;
+    }
+  }
 }
 </style>

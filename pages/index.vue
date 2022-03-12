@@ -16,14 +16,15 @@
 
     <the-gridview />
 
-    <!-- <the-waterfall /> -->
-    <!-- <the-newsletter-registration
-      :action="formActionUrl"
-    ></the-newsletter-registration> -->
-
     <the-contact 
       title="N'hesitez pas à me contactez"
       :button="contactButton"
+      @openModal="showModal"
+    />
+
+    <the-newsletter-modal
+      :is-visible="isModalVisible"
+      @closeModal="closeModal"
     />
   </div>
 </template>
@@ -45,7 +46,23 @@ export default {
   computed: {
     showHighlight() { return this.$store.getters['events/getShowHighlight'] },
     theEvent() { return this.$store.getters['events/getHighlight'] },
-    // formActionUrl() { return this.$nuxt.context.env.APP_MAILCHIMP_FORM_ACTION },
+    isModalVisible() { return this.$store.getters['registration/getVisibility'] },
+  },
+  watch: {
+    isModalVisible() {
+      this.blockPageScroll()
+    }
+  },
+  methods: {
+    showModal() {
+      this.$store.dispatch('registration/setVisibility', true)
+    },
+    closeModal() {
+      this.$store.dispatch('registration/setVisibility', false)
+    },
+    blockPageScroll() {
+      document.body.classList.toggle('pge-scroll-block')
+    }
   }
 }
 </script>
