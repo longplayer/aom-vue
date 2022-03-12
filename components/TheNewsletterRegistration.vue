@@ -187,31 +187,31 @@ export default {
       return obj;
     },
     subscribe(e) {
-
-      const action = this.action.replace('/post?', '/post-json?').concat('&c=?')
-      const headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      }
-      // console.log({e, data, headers, action, d, params}, )
-      // const data = {
-      //   EMAIL: this.email,
+      e.target.submit()
+      // const action = this.action.replace('/post?', '/post-json?').concat('&c=?')
+      // const headers = {
+      //   'Access-Control-Allow-Origin': '*',
+      //   'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      //   'Access-Control-Allow-Headers': 'Content-Type',
       // }
-      const d = new FormData(e.target)
-      const params = this.serialize(d);
+      // // console.log({e, data, headers, action, d, params}, )
+      // // const data = {
+      // //   EMAIL: this.email,
+      // // }
+      // const d = new FormData(e.target)
+      // const params = this.serialize(d);
 
-      this.$axios.$post(action, params, {headers})
-        .then(response => {
-          console.log('>>Axios response', response)
-          this.successMessage = response.msg
-          this.$emit('closeModal')
-        })
-        .catch (err => {
-          this.errorMessage = err
-          this.$emit('closeModal')
-          e.target.submit()
-        })
+      // this.$axios.$post(action, params, {headers})
+      //   .then(response => {
+      //     console.log('>>Axios response', response)
+      //     this.successMessage = response.msg
+      //     this.$emit('closeModal')
+      //   })
+      //   .catch (err => {
+      //     this.errorMessage = err
+      //     this.$emit('closeModal')
+      //     e.target.submit()
+      //   })
     },
   },
 }
