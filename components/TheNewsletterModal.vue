@@ -29,7 +29,7 @@ export default {
   },
   emits: ['closeModal', 'showModal'],
   computed: {
-    formActionUrl() { return this.$nuxt.context.env.APP_MAILCHIMP_FORM_ACTION },
+    formActionUrl() { return 'https://lpprod.us20.list-manage.com/subscribe/post?u=5a12458d9006c6a4b76f63d46&id=314a5d4c0a' },
   },
   methods: {
     showModal() {

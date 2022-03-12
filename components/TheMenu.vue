@@ -65,8 +65,8 @@
 <script>
 export default {
   computed: {
-    mailTo() { return `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}` },
-    instagramAccountUrl() { return `${this.$nuxt.context.env.APP_INSTAGRAM_ACCOUNT_URL}` },
+    mailTo() { return `mailto:a_normal_graffizm@hotmail.com` },
+    instagramAccountUrl() { return `https://www.instagram.com/age_of_robots/` },
   }
 }
 </script>

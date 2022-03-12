@@ -39,7 +39,7 @@ export default {
         name: 'contact button',
         label: 'Envoyer un email',
         class: 'btn btn-black',
-        href: `mailto:${this.$nuxt.context.env.APP_MAIL_SEND_ADDRESS}`
+        href: `mailto:a_normal_graffizm@hotmail.com`
       }
     }
   },
