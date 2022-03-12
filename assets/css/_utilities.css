@@ -101,6 +101,10 @@
   @apply w-full h-full object-cover;
 }
 
+.pge-scroll-block {
+  overflow: hidden;
+}
+
 /*
 *   animation
 * ============================================ */

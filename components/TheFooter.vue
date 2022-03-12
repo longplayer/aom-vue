@@ -2,7 +2,7 @@
   <footer id="the-footer" class="the-footer">
     <section class="footer-section">
       <p>
-        Copyright {{ year }} Miguel Fernandez - made with <span class="emoji e-heart">❤️</span> by <base-button :btn="lpButton" />
+        © {{ year }} Miguel Fernandez - made with <span class="emoji e-heart">❤️</span> by <base-button :btn="lpButton" />
       </p>
     </section>
   </footer>

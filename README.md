@@ -13,11 +13,19 @@ Frontend: [VueJS](https://v2.vuejs.org/v2/api/) (v2)
   https://tailwindcss.nuxtjs.org/examples/postcss-plugin/
   https://github.com/postcss/postcss/blob/main/docs/plugins.md
 
+- Vee-validate (v3)
+  - https://vee-validate.logaretm.com/v3
+  - [ht1](https://briancaffey.github.io/2020/10/10/how-to-add-email-signup-form-to-nuxt-site-with-mailchimp.html/) / [ht2](https://hashinteractive.com/blog/nuxt-js-mailchimp-integration-add-contact-to-list/)
+    - https://gist.github.com/chrsgrffth/fa69fa9874871c8b52afc01d1a881e6d
+    - https://gist.github.com/delineas/d28726a8ba689628f5ad1ec64f2d063f
+
 ```bash
 npm install --save photoswipe vue-clazy-load vue-masonry-css vue-scrollto
 npm install --save-dev lodash
 npm install -D postcss-import
 npm install -D @nuxtjs/dotenv
+# npm install vee-validate@3 express --save
+# npm install --save fs net tls
 ```
 
 **Website preview**
