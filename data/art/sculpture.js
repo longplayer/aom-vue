@@ -39,28 +39,10 @@ export default [
     size: [1200, 798],
   },
   {
-    title: 'Petit robot',
-    file: 'DSC_8147.jpg',
-    alt: '',
-    size: [1200, 1793],
-  },
-  {
-    title: '',
-    file: 'Robot17.jpg',
-    alt: '',
-    size: [1000, 750],
-  },
-  {
     title: '',
     file: 'petit-robot.jpg',
     alt: '',
     size: [752, 1333],
-  },
-  {
-    title: '',
-    file: '3.jpg',
-    alt: '',
-    size: [1475, 2254],
   },
   {
     title: '',
@@ -70,21 +52,9 @@ export default [
   },
   {
     title: '',
-    file: 'Robot13.jpg',
-    alt: '',
-    size: [601, 847],
-  },
-  {
-    title: '',
     file: 'DSC_8142.jpg',
     alt: '',
     size: [1200, 1793],
-  },
-  {
-    title: '',
-    file: 'Robot19.jpg',
-    alt: '',
-    size: [750, 1000],
   },
   {
     title: '',
@@ -94,63 +64,15 @@ export default [
   },
   {
     title: '',
-    file: '3 2-Modifier.jpg',
-    alt: '',
-    size: [1272, 3018],
-  },
-  {
-    title: '',
-    file: '4.3-Modifier.jpg',
-    alt: '',
-    size: [1187, 2937],
-  },
-  {
-    title: '',
-    file: '22-Modifier.jpg',
-    alt: '',
-    size: [1182, 2838],
-  },
-  {
-    title: '',
     file: '4.1.jpg',
     alt: '',
     size: [2592, 3872],
   },
   {
     title: '',
-    file: '10-Modifier.jpg',
-    alt: '',
-    size: [1003, 1536],
-  },
-  {
-    title: '',
-    file: 'arlette2.jpg',
-    alt: '',
-    size: [669, 1000],
-  },
-  {
-    title: '',
-    file: 'DSC09028.jpg',
-    alt: '',
-    size: [1356, 862],
-  },
-  {
-    title: '',
-    file: 'DSC09070.jpg',
-    alt: '',
-    size: [1017, 1357],
-  },
-  {
-    title: '',
     file: 'enfant.jpg',
     alt: '',
     size: [903, 1500],
-  },
-  {
-    title: '',
-    file: 'soldat_robot.jpg',
-    alt: '',
-    size: [2592, 3872],
   },
   {
     title: '',
