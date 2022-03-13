@@ -1,5 +1,5 @@
 <template>
-  <section class="section-gridview">
+  <section id="section-gridview" class="section-gridview">
     <div class="gridview">
       <header>
         <h2 class="app-title">{{ waterfall.title }}</h2>

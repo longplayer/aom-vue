@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       img: 'https://placehold.it/1920x1080',
+      defaultLinkTarget: '#section-gridview'
     }
   },
   computed: {
@@ -54,6 +55,7 @@ export default {
     this.img = this.hero.image.path
 
     // update button anchor link
+    // TODO: Find better way to do this...
     if (!this.showHighlight) {
       this.$store.dispatch('hero/updateProperty', {
         property: 'title',
@@ -77,7 +79,7 @@ export default {
       })
       this.$store.dispatch('hero/updateButtonProp', {
         property: 'href',
-        value: '#app-waterfall',
+        value: this.defaultLinkTarget,
       })
     } else {
       this.$store.dispatch('hero/updateButtonProp', {

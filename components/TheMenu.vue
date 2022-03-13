@@ -8,12 +8,12 @@
       <ul class="m-list">
         <li class="m-item">
           <base-button
-            v-scroll-to="'#app-waterfall'"
+            v-scroll-to="'#section-gridview'"
             :btn="{
               name: 'go to travaux',
               label: 'Mes travaux',
               tag: 'a',
-              href: '#app-waterfall'
+              href: '#section-gridview'
             }"
           />
         </li>
