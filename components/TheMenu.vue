@@ -1,12 +1,12 @@
 <template>
   <div id="app-menu" class="app-menu">
     <div class="logo">
-      <span class="logo-sup">Age of Robots of</span>
+      <span class="logo-sup">Age of Robots</span>
       <span class="logo-sub">The art of Miguel Fernandez</span>
     </div>
-    <nav class="m-nav">
-      <ul class="m-list">
-        <li class="m-item">
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item">
           <base-button
             v-scroll-to="'#section-gridview'"
             :btn="{
@@ -19,21 +19,8 @@
         </li>
       </ul>
     </nav>
-    <ul class="sc-list">
-      <li class="sc-item">
-        <base-button
-          :btn="{
-            tag: 'a',
-            name: 'partage facebook',
-            label: 'Mes travaux',
-            title: 'Suivez moi sur Facebook',
-            class: 'ui-icon icon-facebook',
-            target: '_blank',
-            href: '',
-          }"
-        />
-      </li>
-      <li class="sc-item">
+    <ul class="social__list">
+      <li class="social__item">
         <base-button
           :btn="{
             tag: 'a',
@@ -46,7 +33,7 @@
           }"
         />
       </li>
-      <li class="sc-item">
+      <li v-if="false" class="social__item">
         <base-button
           :btn="{
             tag: 'a',
@@ -104,15 +91,18 @@ export default {
     }
   }
 
-  .m-nav {
-    flex: .1 0 auto;
-    margin: auto 1rem auto auto;
+  .nav {
+    overflow: hidden;
+    flex: 0 0 0px;
+    margin: 0;
 
-    .m-list {
+    .nav__list {
       margin: auto 0;
       @apply flex flex-wrap justify-center;
+      transform: translate(-100%, 0%) scale(0, 1);
+      transition: transform 300ms ease;
 
-      .m-item {
+      .nav__item {
         list-style-type: none;
         font-size: .8rem;
         transition: all 300ms ease-in 100ms;
@@ -143,18 +133,17 @@ export default {
     }
   }
 
-  .sc-list {
+  .social__list {
+    margin: 0 0 0 auto;
     flex: .1 0 auto;
-    margin: auto 0 auto 0;
+    width: auto;
     @apply flex flex-wrap justify-between;
 
-    .sc-item {
+    .social__item {
       margin: auto;
       text-align: center;
       width: 1rem;
       height: 1rem;
-
-      &:nth-child(1) { display: none; }
 
       .ui-icon {
         line-height: 1rem;
@@ -167,14 +156,14 @@ export default {
   }
 
   @screen x2sm {
-    .m-list {
+    .nav__list {
       flex: 0 0 auto;
     }
 
-    .sc-list {
+    .social__list {
       margin: 0 0 0 auto;
       
-      .sc-item {
+      .social__item {
         width: 1rem;
         height: 1rem;
         
@@ -190,21 +179,28 @@ export default {
   }
 
   @screen xsm {
-    .sc-list {
-      width: 64px;
+    .nav {
+      flex: .1 0 auto;
+      margin: auto 1rem auto auto;
+      .nav__list {
+        transform: translate(0%, 0%) scale(1, 1);
+      }
+    }
+    .social__list {
       margin: 0;
     }
   }
+
   @screen md {
     .logo {}
-    .m-nav {
-      .m-list {
-        .m-item {
+    .nav {
+      .nav__list {
+        .nav__item {
         }
       }
     }
-    .sc-list {
-      .sc-item {
+    .social__list {
+      .social__item {
         .ui-icon {
         }
       }
