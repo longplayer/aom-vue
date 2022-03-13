@@ -86,4 +86,86 @@ export default [
     alt: '',
     size: [4288, 2848],
   },
+
+
+  {
+    title: '',
+    file: '_KG_9604.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9639.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9650.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9658.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9746.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9755.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+  {
+    title: '',
+    file: '_KG_9764.jpg',
+    alt: '',
+    size: [1067, 1600],
+  },
+
+
+  {
+    title: '',
+    file: 'wapp-1.jpg',
+    alt: '',
+    size: [1600, 1600],
+  },
+  {
+    title: '',
+    file: 'wapp-2.jpg',
+    alt: '',
+    size: [1600, 1600],
+  },
+  {
+    title: '',
+    file: 'wapp-4.jpg',
+    alt: '',
+    size: [1386, 1600],
+  },
+  {
+    title: '',
+    file: 'wapp-5.jpg',
+    alt: '',
+    size: [1600, 1600],
+  },
+  {
+    title: '',
+    file: 'wapp-6.jpg',
+    alt: '',
+    size: [1294, 1600],
+  },
+  {
+    title: '',
+    file: 'wapp-7.jpg',
+    alt: '',
+    size: [1311, 1600],
+  },
 ]
