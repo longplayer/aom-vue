@@ -165,7 +165,7 @@ section {
   }
 
   &__item {
-    @apply bg-gray-500 cursor-pointer;
+    @apply cursor-pointer;
 
     &--h {
       grid-column: span 2;

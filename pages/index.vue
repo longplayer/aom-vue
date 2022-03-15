@@ -14,9 +14,19 @@
       ></event-item>
     </template>
 
-    <the-gridview />
+    <!-- ref="saltest" -->
+    <the-gridview 
+      data-sal="slide-left"
+      data-sal-duration="400"
+      data-sal-delay="150"
+      data-sal-easing="cubic-bezier(0, 0, 0.15, 1)"
+    />
 
     <the-contact 
+      data-sal="slide-right"
+      data-sal-duration="400"
+      data-sal-delay="150"
+      data-sal-easing="cubic-bezier(0, 0, 0.15, 1)"
       title="N'hesitez pas à me contactez"
       :button="contactButton"
       @openModal="showModal"
@@ -52,6 +62,13 @@ export default {
     isModalVisible() {
       this.blockPageScroll()
     }
+  },
+  mounted() {
+    console.log(this)
+    // const element = this.$refs.saltest.$el
+    // element.addEventListener('sal:in', ({detail}) => {
+    //   console.log(detail)
+    // })
   },
   methods: {
     showModal() {
