@@ -19,7 +19,7 @@
     </transition>
     <transition slot="placeholder" name="fade">
       <div class="cloader__placeholder">
-        <img src='@/assets/img/loading.gif'>
+        <img src='@/assets/img/loading.gif' alt="loading image...">
       </div>
     </transition>
   </clazy-load>
