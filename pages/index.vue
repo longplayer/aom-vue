@@ -64,11 +64,8 @@ export default {
     }
   },
   mounted() {
-    console.log(this)
     // const element = this.$refs.saltest.$el
-    // element.addEventListener('sal:in', ({detail}) => {
-    //   console.log(detail)
-    // })
+    // element.addEventListener('sal:in', ({detail}) => {})
   },
   methods: {
     showModal() {
