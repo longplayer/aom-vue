@@ -11,7 +11,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Lato',
+          'Poppins',
           ...defaultTheme.fontFamily.sans,
         ]
       },

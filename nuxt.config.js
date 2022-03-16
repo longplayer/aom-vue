@@ -16,7 +16,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:200,300,400' }
     ],
   },
 
@@ -41,6 +40,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://google-fonts.nuxtjs.org/setup
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -64,4 +65,23 @@ export default {
       },
     }
   },
+  // tailwindcss: {
+  //   // jit: false,
+  //   exposeConfig: true,
+  // },
+  // nuxt/google-fonts options
+  googleFonts: {
+    // base64: true,
+    // inject: true,
+    // overwriting: true,
+    download: true,
+    display: 'swap',
+    text: 'ages of robots miguel fernandez',
+    subsets: 'latin',
+    families: {
+      Poppins: {
+        wght: [100, 200, 400, 600]
+      }, // family=Poppins:wght@200;400;600
+    }
+  }
 }
