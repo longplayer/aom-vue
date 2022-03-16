@@ -93,7 +93,8 @@ export default {
 
   .nav {
     overflow: hidden;
-    flex: 0 0 0px;
+    flex: 0 0 0;
+    width: 0;
     margin: 0;
 
     .nav__list {
@@ -135,18 +136,21 @@ export default {
 
   .social__list {
     margin: 0 0 0 auto;
-    flex: .1 0 auto;
+    flex: 0 0 auto;
     width: auto;
     @apply flex flex-wrap justify-between;
 
     .social__item {
       margin: auto;
       text-align: center;
-      width: 1rem;
-      height: 1rem;
+      width: auto;
+      height: auto;
 
       .ui-icon {
-        line-height: 1rem;
+        width: 2rem;
+        height: 2rem;
+        line-height: 0;
+        @apply flex justify-center items-center;
 
         &::before {
           font-size: 0.8em;
@@ -164,8 +168,6 @@ export default {
       margin: 0 0 0 auto;
       
       .social__item {
-        width: 1rem;
-        height: 1rem;
         
         .ui-icon {
           line-height: 1rem;
@@ -180,7 +182,8 @@ export default {
 
   @screen xsm {
     .nav {
-      flex: .1 0 auto;
+      width: auto;
+      flex: 0 0 auto;
       margin: auto 1rem auto auto;
       .nav__list {
         transform: translate(0%, 0%) scale(1, 1);
