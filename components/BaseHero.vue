@@ -107,16 +107,7 @@ export default {
       .h-caption {
         position: relative;
         z-index: 10;
-
         width: 100%;
-        margin: auto;
-        margin-bottom: 10vh;
-
-        color: #fff;
-        font-size: 2rem;
-        line-height: 120%;
-        text-align: center;
-        text-shadow: 1px 1px #000;
       }
 
       .h-fig {
@@ -127,6 +118,7 @@ export default {
         right: 0;
         margin: 0;
         z-index: 5;
+        @apply bg-gray-500;
 
         .h-img {
           object-fit: cover;
@@ -150,51 +142,65 @@ export default {
     }
   }
 
-  .h-title,
-  .h-place,
-  .h-date,
-  .h-link {
-    color: inherit;
-    line-height: 1.2;
-    margin: 0;
-  }
-  .h-place,
-  .h-date {
-    font-size: 1.25rem;
-    font-weight: 200;
-  }
-  .h-title {
-    font-size: 2rem;
-    margin: 10px 0;
-    font-weight: 400;
-  }
-  .h-date {
-    margin: 0 0 20px;
-  }
-  .h-link {
+  .h-caption {
+    color: #fff;
+    line-height: 120%;
+    text-align: center;
+    text-shadow: 1px 1px #000;
     margin: auto;
+    margin-bottom: 10vh;
+
+    .h-title,
+    .h-place,
+    .h-date,
+    .h-link {
+      color: inherit;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .h-place,
+    .h-date {
+      font-size: 1.25rem;
+      font-weight: 200;
+    }
+    .h-title {
+      font-size: 2rem;
+      margin: 10px 0;
+      font-weight: 400;
+    }
+    .h-date {
+      margin: 0 0 20px;
+    }
+    .h-link {
+      margin: auto;
+    }
   }
-}
-@screen xsm {
-  .app-hero .h-area .h-item .h-caption {
-    text-align: right;
-    max-width: 560px;
-    margin: auto 2vw 5vh auto;
+
+  @screen xsm {
+    .h-caption {
+      text-align: right;
+      max-width: 560px;
+      margin: auto 2vw 5vh auto;
+
+      .h-link {
+        margin: 0 0 0 auto;
+      }
+    }
   }
-  .h-link {
-    margin: 0 0 0 auto;
+  @screen md {
+    .h-caption {
+
+      .h-title {
+        font-size: 3rem;
+      }
+
+      .h-place,
+      .h-date {
+        font-size: 2rem;
+        font-weight: 300;
+      }
+    }
   }
 }
 
-@screen md {
-  .h-title {
-    font-size: 3rem;
-  }
-
-  .h-place,
-  .h-date {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-}
 </style>

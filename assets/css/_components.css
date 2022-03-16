@@ -2,23 +2,36 @@
   @apply mx-auto;
 }
 
+
 /*
 *   buttons
 * ============================================ */
 
 .btn {
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: .05rem;
+  font-weight: 400;
+  padding: 1rem 2rem;
   border-width: 1px;
   border-style: solid;
   border-radius: 10px;
-  font-weight: 300;
   white-space: nowrap;
-  font-size: 1rem;
   transition: all 0.4s ease-out;
-  @apply inline-block p-3 max-w-full w-auto h-auto text-center;
+  @apply inline-block max-w-full w-auto h-auto text-center;
+
+  @screen xsm {
+    font-size: 1.5rem;
+    padding: 2rem 4rem;
+  }
+  @screen lg {
+    font-size: 1.75rem;
+    padding: 3rem 6rem;
+  }
 
   &-white {
     @apply bg-transparent text-gray-50 border-white;
-  
+
     &:hover,
     &:active,
     &:focus {
@@ -36,24 +49,5 @@
       text-decoration: none;
       @apply bg-white text-gray-900;
     }
-  }
-}
-
-@screen x2sm {
-  .btn {
-    font-size: 20px;
-    padding: 20px 40px;
-  }
-}
-@screen xsm {
-  .btn {
-    font-size: 26px;
-    padding: 30px 60px;
-  }
-}
-@screen xl {
-  .btn {
-    font-size: 30px;
-    padding: 30px 80px;
   }
 }

@@ -12,22 +12,49 @@ body {
   font-size: 16px;
 }
 
-h1 {
-  font-size: 30px;
+h1,
+.app-title {
+  font-size: 2rem;
+  line-height: 1.6;
+  font-weight: 400;
+  @screen xsm {
+    font-size: 2.25rem;
+  }
+  @screen lg {
+    font-size: 3rem;
+  }
+}
+
+h2, h3,
+.app-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 200;
+  @screen xsm {
+    font-size: 1.5rem;
+  }
+  @screen lg {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
   font-weight: 400;
 }
 
-h2 {
-
-  font-size: 20px;
-  font-weight: 300;
-}
-
-p {
-  font-size: 18px;
-  line-height: 1.6;
+p,
+.app-paragraph {
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 200;
+  @screen xsm {
+    font-size: 1.125rem;
+  }
+  @screen lg {
+    font-size: 1.25rem;
+  }
 }
+
 
 ul {
   padding: 0;
@@ -38,73 +65,11 @@ li {
   list-style-type: none;
 }
 
-@media (min-width: 992px) {
-  h1 {
-    font-size: 38px;
-    font-weight: 300;
-  }
-}
-
-
-
-
-.app-waterfall article,
-.app-contact article {
-  padding-top: 100px;
-}
-
-.app-contact header,
-.app-waterfall header {
-  padding-bottom: 50px;
-}
-
-
-/*
-*   contact me
-* ============================================ */
-.app-contact article {
-  text-align: center;
-}
-.app-contact .app-title {
-  margin-bottom: 20px;
-}
-
-.app-contact .btn {
-  margin: auto;
-}
-
 /*
 * ------------------------------------------
 *   Media Queries
 * ------------------------------------------
 */
-@media (min-width: 400px) {
-  .app-header {
-    height: 90px;
-  }
-}
-
-@media (min-width: 576px) {
-  .app-title {
-    font-size: 38px;
-    font-weight: 300;
-  }
-
-  .app-subtitle {
-    font-size: 22px;
-  }
-
-  .app-paragraph {
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 200;
-  }
-
-  .header nav {
-    width: 78%;
-  }
-}
-
 @media (min-width: 768px) {
   .message {
     text-align: center;
@@ -119,27 +84,8 @@ li {
 }
 
 @media (min-width: 992px) {
-  .app-title {
-    font-size: 48px;
-    font-weight: 300;
-  }
-
-  .app-subtitle {
-    font-size: 26px;
-    font-weight: 300;
-  }
-
-  .app-paragraph {
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 200;
-  }
-
   .ev-content p,
   .app-event .app-title {
     text-align: left;
   }
-}
-
-@media (min-width: 1200px) {
 }

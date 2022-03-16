@@ -32,12 +32,28 @@ export default {
 .app-contact {
   @apply container mx-auto;
 
-  .newsletter-invitation {
-    max-width: 720px;
-    @apply mt-12 mx-auto;
+  article {
+    @apply text-center pt-24;
 
-    a {
-      font-weight: 700;
+    header {
+      @apply mb-12;
+
+      .app-title {
+        @apply mb-6;
+      }
+    }
+
+    .btn {
+      @apply m-auto
+    }
+    
+    .newsletter-invitation {
+      max-width: 720px;
+      @apply mt-12 mx-auto;
+
+      a {
+        font-weight: 700;
+      }
     }
   }
 }
