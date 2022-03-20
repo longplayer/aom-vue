@@ -31,20 +31,31 @@ export default {
 .the-footer {
 
   border-top: 1px solid #eee;
-  @apply w-full h-24 mt-24 flex text-center text-xs tracking-wider bg-gray-900 text-gray-500;
+  @apply w-full h-24 mt-24 flex bg-gray-900;
 
   .footer-section {
     @apply container m-auto p-4;
+
+    p {
+      @apply text-center text-xs tracking-wider text-gray-400;
+    }
+
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        color: #fff;
+      }
+    }
     
     .emoji {
       font-size: 10px;
     }
   }
+
   .ev-item {
     margin-bottom: 2.5rem;
   }
-
-
 }
 
 </style>
