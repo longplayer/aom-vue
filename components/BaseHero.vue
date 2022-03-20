@@ -7,18 +7,20 @@
         :data-hero-thumbnail="loadImage"
       >
         <div class="h-caption container">
-          <p v-if="hero.place.length" class="h-place">{{ hero.place }} :</p>
-          <p v-if="hero.title.lenght" class="h-title">{{ hero.title }}</p>
-          <p v-if="hero.date.str.length" class="h-date">{{ hero.date.str }}</p>
-          <base-button v-scroll-to="hero.button.href" :btn="hero.button"></base-button>
+          <template v-if="highlight">
+            <p v-if="hero.place.length" class="h-place">{{ hero.place }} :</p>
+            <p v-if="hero.title.lenght" class="h-title">{{ hero.title }}</p>
+            <p v-if="hero.date.str.length" class="h-date">{{ hero.date.str }}</p>
+          </template>
+          <base-button v-scroll-to="button.href" :btn="button" />
         </div>
-
         <base-figure class="h-fig">
           <template slot="image">
             <base-image
               class="h-img"
               :src="loadImage"
               :alt="hero.image.alt"
+              data-sal="fade"
             ></base-image>
           </template>
         </base-figure>
@@ -32,7 +34,15 @@ export default {
   data() {
     return {
       img: 'https://placehold.it/1920x1080',
-      defaultLinkTarget: '#section-gridview'
+      defaultLinkTarget: '#section-gridview',
+      defaultLinkLabel: 'Voir mes travaux...',
+      button: {
+        tag: 'a',
+        name: 'hero button',
+        label: '',
+        href: '#',
+        class: 'btn btn-glass h-link',
+      }
     }
   },
   computed: {
@@ -53,48 +63,14 @@ export default {
   },
   created() {
     this.img = this.hero.image.path
-
-    // update button anchor link
-    // TODO: Find better way to do this...
-    if (!this.showHighlight) {
-      this.$store.dispatch('hero/updateProperty', {
-        property: 'title',
-        value: '',
-      })
-      this.$store.dispatch('hero/updateProperty', {
-        property: 'place',
-        value: '',
-      })
-      this.$store.dispatch('hero/updateProperty', {
-        property: 'date',
-        value: {
-          begin: '',
-          end: '',
-          str: '',
-        },
-      })
-      this.$store.dispatch('hero/updateButtonProp', {
-        property: 'label',
-        value: 'Voir la selection',
-      })
-      this.$store.dispatch('hero/updateButtonProp', {
-        property: 'href',
-        value: this.defaultLinkTarget,
-      })
-    } else {
-      this.$store.dispatch('hero/updateButtonProp', {
-        property: 'href',
-        value: `#${this.highlight.id}`,
-      })
-    }
+    this.button.href = this.showHighlight ? `#${this.highlight.id}` : this.defaultLinkTarget;
+    this.button.label = this.showHighlight ? this.highlight.title : this.defaultLinkLabel;
   },
 }
 </script>
 
 <style lang="postcss">
-
 .app-hero {
-
   .h-area {
     position: relative;
     height: 100vh;
@@ -146,7 +122,7 @@ export default {
     color: #fff;
     line-height: 120%;
     text-align: center;
-    text-shadow: 1px 1px #000;
+    text-shadow: 1px 1px rgba(0,0,0,.3);
     margin: auto;
     margin-bottom: 10vh;
 

@@ -16,9 +16,8 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 10px;
-  white-space: nowrap;
   transition: all 0.4s ease-out;
-  @apply inline-block max-w-full w-auto h-auto text-center;
+  @apply inline-block max-w-full w-auto h-auto text-center cursor-pointer;
 
   @screen xsm {
     font-size: 1.5rem;
@@ -29,6 +28,7 @@
     padding: 3rem 6rem;
   }
 
+  /* Buttons viriations */
   &-white {
     @apply bg-transparent text-gray-50 border-white;
 
@@ -48,6 +48,16 @@
     &:focus {
       text-decoration: none;
       @apply bg-white text-gray-900;
+    }
+  }
+
+  &-glass {
+    border-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    @apply text-white;
+    &:hover {
+      background-color: rgba(255,255,255,0.3);
     }
   }
 }
