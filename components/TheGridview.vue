@@ -8,11 +8,12 @@
       <ul
         ref="$container"
         class="gridview__list" 
-        @click="atClick($event)"
+        @click="atClick"
         >
         <!-- cannot use v-for loop because items classes are very specific -->
+        <!-- TODO: use v-for / add property to each items with specific class -->
         <li class="gridview__item gridview__item--xl">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[0]"
               :index="0"
@@ -21,7 +22,7 @@
           </button>
         </li>
         <li class="gridview__item">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[1]"
               :index="1"
@@ -30,7 +31,7 @@
           </button>
         </li>
         <li class="gridview__item gridview__item--v">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[2]"
               :index="2"
@@ -39,7 +40,7 @@
           </button>
         </li>
         <li class="gridview__item gridview__item--h">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[3]"
               :index="3"
@@ -48,7 +49,7 @@
           </button>
         </li>
         <li class="gridview__item">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[4]"
               :index="4"
@@ -57,7 +58,7 @@
           </button>
         </li>
         <li class="gridview__item gridview__item--h">
-          <button class="gridview__link">
+          <button class="gridview__link container-image-desaturate">
             <base-clasy-loader
               :image="list[5]"
               :index="5"
@@ -75,9 +76,9 @@
 // grid demo: https://codepen.io/longplayer/pen/vYWomVy
 const DEFAULT_IMAGE = 'https://picsum.photos/526'
 export default {
-  // components: { BaseClasyLoader },
   data() {
     return {
+      imagesHTMLCollection: null,
       imagesLimit: 6,
       image: DEFAULT_IMAGE,
       list: [],
@@ -94,7 +95,6 @@ export default {
       .map((index) => this.waterfall.list[index])
   },
   mounted () {
-    // console.log(this.$photoswipe)
     this.$photoswipe.listen('beforeChange', (e) => this.beforeChange(e))
   },
   beforeDestroy () {
@@ -105,23 +105,33 @@ export default {
 
       if(typeof this.$photoswipe === 'undefined') return
 
-      const items = []
-      const $el = this.$refs.$container.querySelectorAll('img')
-      let index = 0
+      const $el = this.imagesHTMLCollection
+        ? this.imagesHTMLCollection
+        : this.$refs.$container.querySelectorAll('img')
+      const {index, list} = this.getListAndIndex($el, e)
 
-      for (const img of $el) {
+      this.imagesHTMLCollection = $el // save image collection for next time
+      this.$photoswipe.open(list, { index })
+    },
+    getListAndIndex($container, e) {
+      let index = 0
+      const list = []
+      const imageTarget = (e.target instanceof HTMLImageElement)
+        ? e.target
+        : e.target.querySelector('img')
+
+      for (const img of $container) {
         if (img instanceof HTMLImageElement) {
-          if (img === e.target) {
-            index = items.length
+          if (img === imageTarget) {
+            index = list.length
           }
-          items.push({
+          list.push({
             $el: img,
             src: img.src
           })
         }
       }
-
-      this.$photoswipe.open(items, { index })
+      return { index, list, }
     },
     setRadomIndexList(length, limit) {
 
@@ -137,7 +147,7 @@ export default {
       return list
     },
     beforeChange (args) {
-      // console.log('beforeChange', args); // eslint-disable-line
+      console.log('>>beforeChange event', args); // eslint-disable-line
     },
   },
 
