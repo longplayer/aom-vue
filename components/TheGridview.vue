@@ -10,71 +10,37 @@
         class="gridview__list" 
         @click="atClick"
         >
-        <!-- cannot use v-for loop because items classes are very specific -->
-        <!-- TODO: use v-for / add property to each items with specific class -->
-        <li class="gridview__item gridview__item--xl">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[0]"
-              :index="0"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
-        <li class="gridview__item">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[1]"
-              :index="1"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
-        <li class="gridview__item gridview__item--v">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[2]"
-              :index="2"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
-        <li class="gridview__item gridview__item--h">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[3]"
-              :index="3"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
-        <li class="gridview__item">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[4]"
-              :index="4"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
-        <li class="gridview__item gridview__item--h">
-          <button class="gridview__link container-image-desaturate">
-            <base-clasy-loader
-              :image="list[5]"
-              :index="5"
-              class="container-image-cover"
-            />
-          </button>
-        </li>
+        <template v-for="(classvalue, index) in gridViewClassList">
+          <li :key="index" :class="[classvalue, 'gridview__item']">
+            <button class="gridview__link container-image-desaturate">
+              <base-clasy-loader
+                :image="list[index]"
+                :index="index"
+                class="container-image-cover"
+              />
+            </button>
+          </li>
+        </template>
       </ul>
     </div>
   </section>
 </template>
 
 <script>
-// import BaseClasyLoader from './BaseClasyLoader.vue'
-// grid demo: https://codepen.io/longplayer/pen/vYWomVy
 const DEFAULT_IMAGE = 'https://picsum.photos/526'
+
+// lenght must be equal to 'imagesLimit'
+// this can change depending on the items lenght
+// grid demo: https://codepen.io/longplayer/pen/vYWomVy
+const ITEMS_LAYOUT_CSS_CLASS = [
+  'gridview__item--xl',
+  '',
+  'gridview__item--v',
+  'gridview__item--h',
+  '',
+  'gridview__item--h'
+]
+
 export default {
   data() {
     return {
@@ -82,7 +48,8 @@ export default {
       imagesLimit: 6,
       image: DEFAULT_IMAGE,
       list: [],
-      waterfall: this.$store.getters['waterfall/getWaterfallState']
+      waterfall: this.$store.getters['waterfall/getWaterfallState'],
+      gridViewClassList: ITEMS_LAYOUT_CSS_CLASS
     }
   },
   created() {
@@ -108,14 +75,14 @@ export default {
       const $el = this.imagesHTMLCollection
         ? this.imagesHTMLCollection
         : this.$refs.$container.querySelectorAll('img')
-      const {index, list} = this.getListAndIndex($el, e)
+      const {index, items} = this.getListAndIndex($el, e)
 
       this.imagesHTMLCollection = $el // save image collection for next time
-      this.$photoswipe.open(list, { index })
+      this.$photoswipe.open(items, { index })
     },
     getListAndIndex($container, e) {
       let index = 0
-      const list = []
+      const items = []
       const imageTarget = (e.target instanceof HTMLImageElement)
         ? e.target
         : e.target.querySelector('img')
@@ -123,34 +90,32 @@ export default {
       for (const img of $container) {
         if (img instanceof HTMLImageElement) {
           if (img === imageTarget) {
-            index = list.length
+            index = items.length
           }
-          list.push({
+          items.push({
             $el: img,
             src: img.src
           })
         }
       }
-      return { index, list, }
+      return { index, items }
     },
     setRadomIndexList(length, limit) {
-
-      const list = []
+      const randomList = []
       const getRandomIndex = () => Math.floor(Math.random() * length)
 
       for(let i = 0; i < limit; i++) {
         let randomIndex = getRandomIndex()
         // generate new randomIndex until it's not include in the array
-        while (list.includes(randomIndex)) { randomIndex = getRandomIndex() }
-        list.push(randomIndex)
+        while (randomList.includes(randomIndex)) { randomIndex = getRandomIndex() }
+        randomList.push(randomIndex)
       }
-      return list
+      return randomList
     },
     beforeChange (args) {
-      console.log('>>beforeChange event', args); // eslint-disable-line
+      // console.log('>>beforeChange event', args); // eslint-disable-line
     },
   },
-
 }
 </script>
 
