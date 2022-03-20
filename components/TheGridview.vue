@@ -7,16 +7,15 @@
       </header>
       <ul
         ref="$container"
-        class="gridview__list" 
+        class="gridview__list"
         @click="atClick"
         >
         <template v-for="(classvalue, index) in gridViewClassList">
           <li :key="index" :class="[classvalue, 'gridview__item']">
-            <button class="gridview__link container-image-desaturate">
+            <button class="gridview__link container-image-desaturate container-image-cover">
               <base-clasy-loader
                 :image="list[index]"
                 :index="index"
-                class="container-image-cover"
               />
             </button>
           </li>

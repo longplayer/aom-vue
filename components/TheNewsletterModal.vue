@@ -4,7 +4,10 @@
     @close="closeModal"
   >
     <template #header>
-      <h1>Inscrivez vous</h1>
+      <span class="block">
+        <h2>Age of Robots Newsletter</h2>
+        <h1>Inscrivez-vous</h1>
+      </span>
     </template>
     <template #body>
       <the-newsletter-registration

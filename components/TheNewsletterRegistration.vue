@@ -141,11 +141,11 @@ export default {
         return {
           title: 'Inscrivez-vous',
           required: 'Ce champ est requis',
-          email: 'Adresse courriel',
-          subscribe: 'Subscribe',
+          email: 'Adresse email',
+          subscribe: 'S\'inscrire',
           marketing: {
             title: 'Autorisations marketing',
-            intro: 'Veuillez sélectionner toutes les façons dont vous aimeriez entendre parler d’Ages of Robots:',
+            intro: 'Veuillez sélectionner la manière dont vous souhaiteriez entendre parler d’Ages of Robots.',
             howUnsubscribe: 'Vous pouvez vous désabonner à tout moment en cliquant sur le lien dans le bas de page de nos e-mails. Pour obtenir plus d\'informations sur nos pratiques de confidentialité, rendez-vous sur notre site Web.',
             legal: 'Nous utilisons Mailchimp comme plate-forme de marketing. En cliquant ci-dessous pour abonnez-vous, vous reconnaissez que vos informations seront transféré à Mailchimp pour traitement.',
             legalLabel: 'En savoir plus sur les pratiques de confidentialité de Mailchimp ici.',
@@ -188,6 +188,8 @@ export default {
     },
     subscribe(e) {
       e.target.submit()
+
+      // Ideal procedure...
       // const action = this.action.replace('/post?', '/post-json?').concat('&c=?')
       // const headers = {
       //   'Access-Control-Allow-Origin': '*',
@@ -200,7 +202,6 @@ export default {
       // // }
       // const d = new FormData(e.target)
       // const params = this.serialize(d);
-
       // this.$axios.$post(action, params, {headers})
       //   .then(response => {
       //     console.log('>>Axios response', response)
