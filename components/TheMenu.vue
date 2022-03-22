@@ -1,8 +1,10 @@
 <template>
   <div id="app-menu" class="app-menu">
     <nuxt-link tag='a' class="logo" to='/'>
-      <span class="logo-sup">Age of Robots</span>
-      <span class="logo-sub">The art of Miguel Fernandez</span>
+      <h1>
+        <span class="logo-sup">Age of Robots</span>
+        <span class="logo-sub">The art of Miguel Fernandez</span>
+      </h1>
     </nuxt-link>
     <nav class="nav">
       <ul class="nav__list">

@@ -20,6 +20,8 @@
               class="h-img"
               :src="loadImage"
               :alt="hero.image.alt"
+              width="1000px"
+              height="1000px"
               data-sal="fade"
             ></base-image>
           </template>
