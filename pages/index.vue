@@ -40,8 +40,6 @@
 </template>
 
 <script>
-const getFile = require.context('@/assets/img/', false, /\.jpg$/)
-
 export default {
   name: 'HomePage',
   data() {
@@ -58,7 +56,11 @@ export default {
   head() {
     return {
       meta: [
+        // https://metatags.io/
         { hid: 'og:image', name: 'og:image', content: this.shareImageFile },
+        { hid: 'og:type', name: 'og:type', content: 'website' },
+        { hid: 'twitter:image', name: 'twitter:image', content: this.shareImageFile },
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       ]
     }
   },
