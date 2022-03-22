@@ -40,6 +40,8 @@
 </template>
 
 <script>
+const getFile = require.context('@/assets/img/', false, /\.jpg$/)
+
 export default {
   name: 'HomePage',
   data() {
@@ -53,10 +55,21 @@ export default {
       }
     }
   },
+  head() {
+    return {
+      meta: [
+        { hid: 'og:image', name: 'og:image', content: this.shareImageFile },
+      ]
+    }
+  },
   computed: {
     showHighlight() { return this.$store.getters['events/getShowHighlight'] },
     theEvent() { return this.$store.getters['events/getHighlight'] },
     isModalVisible() { return this.$store.getters['registration/getVisibility'] },
+    shareImageFile() {
+      const path = this.$store.getters['hero/getHeroState'].image.path
+      return require(`@/assets/img/${path}`)
+    },
   },
   watch: {
     isModalVisible() {
