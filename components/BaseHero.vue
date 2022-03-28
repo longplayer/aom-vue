@@ -3,8 +3,8 @@
     <div class="h-area">
       <div
         class="h-item"
-        :data-hero-img="loadImage"
-        :data-hero-thumbnail="loadImage"
+        :data-hero-img="img"
+        :data-hero-thumbnail="img"
       >
         <div class="h-caption container">
           <template v-if="highlight">
@@ -16,14 +16,15 @@
         </div>
         <base-figure class="h-fig">
           <template slot="image">
-            <base-image
-              class="h-img"
-              :src="loadImage"
+            <nuxt-img
+              :src="img"
               :alt="hero.image.alt"
-              width="1000px"
-              height="1000px"
+              width="1600"
+              height="900"
+              class="h-img"
               data-sal="fade"
-            ></base-image>
+              sizes="sm:100vw md:100vw lg:100vw"
+            ></nuxt-img>
           </template>
         </base-figure>
       </div>
@@ -48,9 +49,6 @@ export default {
     }
   },
   computed: {
-    loadImage() {
-      return require('@/assets/img/' + this.img)
-    },
     showHighlight() {
       return this.$store.getters['events/getShowHighlight']
     },

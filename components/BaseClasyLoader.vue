@@ -8,14 +8,18 @@
     itemprop="associatedMedia"
     itemscope
     itemtype="http://schema.org/ImageObject"
+    @loading="onImageLoading"
+    @load="onImageLoad($event)"
+    @error="onImageError($event)"
   >
     <transition slot="default" name="fade">
-      <img
+      <nuxt-img
         class="cloader__image"
         :src="image.src"
         :alt="image.alt"
+        format="webp"
         itemprop="thumbnail"
-      >
+      />
     </transition>
     <transition slot="placeholder" name="fade">
       <div class="cloader__placeholder">
@@ -61,6 +65,20 @@ export default {
     if(this.image) {
       this.isLoaded = true
     }
+  },
+  methods: {
+    onImageLoading() {
+      // console.log('>>>IMAGE LOADING...')
+      // this.isLoaded = true
+    },
+    onImageLoad() {
+      // console.log('>>>IMAGE LOADED')
+      // this.isLoaded = true
+    },
+    onImageError(e) {
+      console.log('>>>IMAGE ERROR', e)
+      this.isLoaded = false
+    },
   }
 }
 </script>

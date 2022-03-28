@@ -44,6 +44,8 @@ export default {
     '@nuxtjs/dotenv',
     // https://google-fonts.nuxtjs.org/setup
     '@nuxtjs/google-fonts',
+    // https://image.nuxtjs.org/getting-started/installation
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -67,6 +69,7 @@ export default {
       },
     }
   },
+  // Modules Specific Configuration
   // tailwindcss: {
   //   // jit: false,
   //   exposeConfig: true,
@@ -85,5 +88,6 @@ export default {
         wght: [100, 200, 400, 600]
       }, // family=Poppins:wght@200;400;600
     }
-  }
+  },
+  image: {}
 }
