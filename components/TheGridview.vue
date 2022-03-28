@@ -93,7 +93,7 @@ export default {
           }
           items.push({
             $el: img,
-            src: img.src
+            src: img.dataset.full, // open fullsize image
           })
         }
       }

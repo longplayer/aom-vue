@@ -17,9 +17,11 @@
         class="cloader__image"
         :src="image.src"
         :alt="image.alt"
+        :data-full="image.src"
         format="webp"
         provider="static"
         itemprop="thumbnail"
+        sizes="sm:360px"
       />
     </transition>
     <transition slot="placeholder" name="fade">
