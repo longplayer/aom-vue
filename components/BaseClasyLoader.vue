@@ -21,7 +21,7 @@
         format="webp"
         provider="static"
         itemprop="thumbnail"
-        sizes="sm:360px"
+        sizes="sm:20vw"
       />
     </transition>
     <transition slot="placeholder" name="fade">
