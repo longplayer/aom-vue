@@ -12,7 +12,7 @@ export default {
     target: '_blank',
   },
   image: {
-    path: 'event/artup-2019.jpg',
+    path: 'artup-2019.jpg',
     alt: "ArtUp's logo",
   },
 }

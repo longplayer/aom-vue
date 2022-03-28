@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     loadImage() {
-      return require('@/assets/img/' + this.img)
+      return `img/event/${this.img}`
     },
     cssBackgroundColor() {
       return `background-color:${this.posterBackgroundColor}`

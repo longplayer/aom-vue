@@ -1,5 +1,5 @@
 import sculptures from '@/data/art/sculpture.js'
-const getFile = require.context('@/assets/img/art/sculpture/', false, /\.jpg$/)
+const getFile = (path) => `img/sculpture/${path}`
 
 export const state = () => ({
   title: 'Mes travaux',
@@ -14,7 +14,7 @@ export const getters = {
 export const mutations = {
   INIT_ARTWORKS(state, list) {
     for (const item of list) {
-      const src = getFile('./' + item.file)
+      const src = getFile(item.file)
       state.list.push({
         src,
         thumbnail: src,
@@ -28,8 +28,8 @@ export const mutations = {
   UPDATE_IMG_PATH(state) {
     for (const item of state.list) {
       if (!item.isStatic) {
-        item.src = getFile('./' + item.src)
-        item.thumbnail = getFile('./' + item.thumbnail)
+        item.src = getFile(item.src)
+        item.thumbnail = getFile(item.thumbnail)
         item.isStatic = true
       }
     }

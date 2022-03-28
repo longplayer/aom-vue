@@ -8,7 +8,7 @@ export default {
     str: '15 - 18 mars 2018',
   },
   image: {
-    path: 'hero/img-02.jpg',
+    path: 'img/img-02.jpg',
     alt: "Robot d'exploration",
   },
 }

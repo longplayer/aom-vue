@@ -69,8 +69,7 @@ export default {
     theEvent() { return this.$store.getters['events/getHighlight'] },
     isModalVisible() { return this.$store.getters['registration/getVisibility'] },
     shareImageFile() {
-      const path = this.$store.getters['hero/getHeroState'].image.path
-      return require(`@/assets/img/${path}`)
+      return this.$store.getters['hero/getHeroState'].image.path
     },
   },
   watch: {
