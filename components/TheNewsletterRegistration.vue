@@ -1,7 +1,7 @@
 <template>
   <div id="mc_embed_signup">
     <form
-      v-if="!successMessage"
+      v-if="!successMessage && isModalVisible"
       id="mc-embedded-subscribe-form"
       method="post"
       name="mc-embedded-subscribe-form"
@@ -107,24 +107,6 @@
       {{ successMessage }}
     </p>
   </div>
-
-  <!--
-    <form v-if="!successMessage" @submit.prevent="subscribe($event)">
-      <input
-        id="email"
-        v-model="email"
-        name="EMAIL"
-        type="text"
-        placeholder="Email"
-        class="require email"
-      />
-      <input type="submit" />
-    </form>
-    <p v-if="errorMessage && !successMessage" transition="fade">
-      {{ errorMessage }}
-    </p>
-    <p v-if="successMessage" transition="fade">{{ successMessage }}</p>
-  -->
 </template>
 
 <script>
@@ -170,7 +152,12 @@ export default {
     }
   },
 
+  computed: {
+    isModalVisible() { return this.$store.getters['registration/getVisibility'] }
+  },
+
   methods: {
+    // TODO: move to helpers functions
     serialize (data) {
       // https://gomakethings.com/how-to-serialize-form-data-with-vanilla-js/
       const obj = {};
@@ -189,6 +176,7 @@ export default {
     subscribe(e) {
       e.target.submit()
 
+      // TODO: test on preview mode (@vercel)
       // Ideal procedure...
       // const action = this.action.replace('/post?', '/post-json?').concat('&c=?')
       // const headers = {

@@ -5,8 +5,8 @@
   >
     <template #header>
       <span class="block">
-        <h2>Age of Robots Newsletter</h2>
-        <h1>Inscrivez-vous</h1>
+        <span class="app-subtitle block">Inscrivez-vous à la newsletter</span>
+        <span class="app-title">Age of Robots</span>
       </span>
     </template>
     <template #body>

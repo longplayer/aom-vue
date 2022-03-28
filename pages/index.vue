@@ -69,7 +69,9 @@ export default {
     theEvent() { return this.$store.getters['events/getHighlight'] },
     isModalVisible() { return this.$store.getters['registration/getVisibility'] },
     shareImageFile() {
-      return this.$store.getters['hero/getHeroState'].image.path
+      let output = ''
+      if (typeof document !== 'undefined') { output += document.location.origin}
+      return `${output}${this.$axios.defaults.baseURL}${this.$store.getters['hero/getHeroState'].image.path}`
     },
   },
   watch: {
@@ -80,6 +82,7 @@ export default {
   mounted() {
     // const element = this.$refs.saltest.$el
     // element.addEventListener('sal:in', ({detail}) => {})
+    // console.log('>>> ABSOLUTE PATH: ', this.shareImageFile)
   },
   methods: {
     showModal() {
