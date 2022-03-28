@@ -18,6 +18,7 @@
         :src="image.src"
         :alt="image.alt"
         format="webp"
+        provider="static"
         itemprop="thumbnail"
       />
     </transition>

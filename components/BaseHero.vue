@@ -24,6 +24,7 @@
               class="h-img"
               data-sal="fade"
               sizes="sm:100vw md:100vw lg:100vw"
+              provider="static"
             ></nuxt-img>
           </template>
         </base-figure>
