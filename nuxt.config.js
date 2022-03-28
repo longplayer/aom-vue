@@ -89,5 +89,10 @@ export default {
       }, // family=Poppins:wght@200;400;600
     }
   },
-  image: {}
+  image: {
+    domains: ['eep.io'],
+    alias: {
+      mailchimp: 'https://eep.io/mc-cdn-images/template_images/'
+    }
+  }
 }

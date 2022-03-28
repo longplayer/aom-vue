@@ -92,9 +92,9 @@
               <a
                 href="http://eepurl.com/hWYuov"
                 title="Mailchimp - email marketing made easy and fun"
-                ><img
-                  src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
-              /></a>
+                >
+                  <nuxt-img src="/mailchimp/branding_logo_text_dark_dtp.svg" prefetch />
+              </a>
             </p>
           </div>
         </div>
