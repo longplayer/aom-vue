@@ -5,23 +5,23 @@
     :data-index="index"
     :tag="tag"
     class="cloader"
-    itemprop="associatedMedia"
-    itemscope
-    itemtype="http://schema.org/ImageObject"
     @loading="onImageLoading"
     @load="onImageLoad($event)"
     @error="onImageError($event)"
   >
     <transition slot="default" name="fade">
       <nuxt-img
-        class="cloader__image"
-        :src="image.src"
         :alt="image.alt"
         :data-full="image.src"
+        :src="image.src"
+        class="cloader__image"
+        width="500"
+        height="500"
+        sizes="sm:50vw md:25vw"
         format="webp"
         provider="static"
-        itemprop="thumbnail"
-        sizes="sm:20vw"
+        quality="70"
+        fit="cover"
       />
     </transition>
     <transition slot="placeholder" name="fade">
@@ -59,6 +59,7 @@ export default {
       default: () => null
     }
   },
+  emits: ['loading', 'load', 'error'],
   data(){
     return {
       isLoaded: false
@@ -71,15 +72,13 @@ export default {
   },
   methods: {
     onImageLoading() {
-      // console.log('>>>IMAGE LOADING...')
-      // this.isLoaded = true
+      this.$emit('loading')
     },
     onImageLoad() {
-      // console.log('>>>IMAGE LOADED')
-      // this.isLoaded = true
+      this.$emit('load')
     },
     onImageError(e) {
-      console.log('>>>IMAGE ERROR', e)
+      this.$emit('error', e)
       this.isLoaded = false
     },
   }

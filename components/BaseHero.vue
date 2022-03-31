@@ -19,13 +19,15 @@
             <nuxt-img
               :src="img"
               :alt="hero.image.alt"
+              data-sal="fade"
+              class="h-img"
               width="1600"
               height="900"
-              class="h-img"
-              data-sal="fade"
               sizes="sm:100vw md:100vw lg:100vw"
               format="webp"
               provider="static"
+              quality="85"
+              fit="cover"
             ></nuxt-img>
           </template>
         </base-figure>
