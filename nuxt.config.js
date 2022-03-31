@@ -88,6 +88,7 @@ export default {
       }, // family=Poppins:wght@200;400;600
     }
   },
+  // https://image.nuxtjs.org/api/options
   image: {
     domains: ['eep.io'],
     alias: {

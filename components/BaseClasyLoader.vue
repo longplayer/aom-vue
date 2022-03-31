@@ -22,6 +22,7 @@
         provider="static"
         quality="70"
         fit="cover"
+        @load.once="$emit('image', $event)"
       />
     </transition>
     <transition slot="placeholder" name="fade">
@@ -59,7 +60,7 @@ export default {
       default: () => null
     }
   },
-  emits: ['loading', 'load', 'error'],
+  emits: ['loading', 'load', 'error', 'image'],
   data(){
     return {
       isLoaded: false

@@ -8,7 +8,7 @@
       <ul
         ref="$container"
         class="gridview__list"
-        @click="atClick"
+        @click="onClick"
         >
         <template v-for="(classvalue, index) in gridViewClassList">
           <li :key="index" :class="[classvalue, 'gridview__item']">
@@ -16,6 +16,7 @@
               <base-clasy-loader
                 :image="list[index]"
                 :index="index"
+                @image="onImageLoad"
               />
             </button>
           </li>
@@ -67,24 +68,25 @@ export default {
     this.$photoswipe.unlisten('beforeChange', (e) => this.beforeChange(e))
   },
   methods: {
-    atClick (e) {
+    onImageLoad (ev) {},
+    onClick (ev) {
 
       if(typeof this.$photoswipe === 'undefined') return
 
       const $el = this.imagesHTMLCollection
         ? this.imagesHTMLCollection
         : this.$refs.$container.querySelectorAll('img')
-      const {index, items} = this.getListAndIndex($el, e)
+      const {index, items} = this.getListAndIndex($el, ev)
 
       this.imagesHTMLCollection = $el // save image collection for next time
       this.$photoswipe.open(items, { index })
     },
-    getListAndIndex($container, e) {
+    getListAndIndex($container, ev) {
       let index = 0
       const items = []
-      const imageTarget = (e.target instanceof HTMLImageElement)
-        ? e.target
-        : e.target.querySelector('img')
+      const imageTarget = (ev.target instanceof HTMLImageElement)
+        ? ev.target
+        : ev.target.querySelector('img')
 
       for (const img of $container) {
         if (img instanceof HTMLImageElement) {
