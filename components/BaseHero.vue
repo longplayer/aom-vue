@@ -14,23 +14,20 @@
           </template>
           <base-button v-scroll-to="button.href" :btn="button" />
         </div>
-        <base-figure class="h-fig">
-          <template slot="image">
-            <nuxt-img
-              :src="img"
-              :alt="hero.image.alt"
-              data-sal="fade"
-              class="h-img"
-              width="1600"
-              height="900"
-              sizes="sm:100vw md:100vw lg:100vw"
-              format="webp"
-              provider="static"
-              quality="85"
-              fit="cover"
-            ></nuxt-img>
-          </template>
-        </base-figure>
+        <figure class="h-fig" data-sal="fade">
+          <nuxt-img
+            :src="img"
+            :alt="hero.image.alt"
+            class="h-img"
+            width="1600"
+            height="900"
+            sizes="sm:100vw md:100vw lg:100vw"
+            format="webp"
+            provider="static"
+            quality="85"
+            fit="cover"
+          ></nuxt-img>
+        </figure>
       </div>
     </div>
   </section>
