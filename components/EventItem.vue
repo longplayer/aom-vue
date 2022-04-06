@@ -11,10 +11,14 @@
               :href="button.href"
               :title="title"
             >
-              <base-image
+              <nuxt-img
                 :src="loadImage"
                 :alt="image.alt"
                 class="ev-img"
+                format="webp"
+                provider="static"
+                quality="85"
+                fit="cover"
               />
             </a>
           </template>

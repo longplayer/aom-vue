@@ -1,19 +1,22 @@
 <template>
   <clazy-load
     v-if="isLoaded"
-    :src="image.src"
+    :src="imageFile"
     :data-index="index"
     :tag="tag"
     class="cloader"
     @loading="onImageLoading"
-    @load="onImageLoad($event)"
+    @load="onImageLoad"
     @error="onImageError($event)"
   >
+
+  <!-- {{ imageFile }} -->
+
     <transition slot="default" name="fade">
       <nuxt-img
         :alt="image.alt"
-        :data-full="image.src"
-        :src="image.src"
+        :data-full="imageFile"
+        :src="imageFile"
         class="cloader__image"
         width="500"
         height="500"
@@ -23,7 +26,7 @@
         quality="70"
         fit="cover"
         @load.once="$emit('image', $event)"
-      />
+      ></nuxt-img>
     </transition>
     <transition slot="placeholder" name="fade">
       <div class="cloader__placeholder">
@@ -63,8 +66,12 @@ export default {
   emits: ['loading', 'load', 'error', 'image'],
   data(){
     return {
-      isLoaded: false
+      isLoaded: false,
+      imageFile: 'https://placehold.it/1920x1080'
     }
+  },
+  created(){
+    this.imageFile = this.image.src
   },
   mounted() {
     if(this.image) {
