@@ -1,5 +1,5 @@
 <template>
-  <div id="top" role="document">
+  <section id="top" class="section mt-12 mx-auto p-6" role="document">
     <header>
       <h1>HTML5 Test Page</h1>
       <p>
@@ -769,7 +769,7 @@ p q r s t u v w x y z { | } ~ </pre>
         <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.
       </p>
     </footer>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -790,4 +790,3 @@ export default {
   }
 }
 </script>
-
