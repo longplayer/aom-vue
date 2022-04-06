@@ -80,6 +80,9 @@ export default {
     }
   },
   mounted() {
+    // ensure sal has been updated
+    this.$nuxt.context.app.sal.update()
+
     // const element = this.$refs.saltest.$el
     // element.addEventListener('sal:in', ({detail}) => {})
     // console.log('>>> ABSOLUTE PATH: ', this.shareImageFile)

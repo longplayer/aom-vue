@@ -1,8 +1,6 @@
-import Vue from 'vue'
-import sal from 'sal.js'
+import sal from "sal.js";
+import "sal.js/dist/sal.css";
 
-const options = {
-  once: false,
-}
-
-Vue.use(sal, options)
+export default ({ app }) => {
+  app.sal = sal(); // save to this.$nuxt.context.app value returned by sal()
+};
