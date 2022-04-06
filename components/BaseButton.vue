@@ -14,7 +14,7 @@ export default {
           type: 'button',
           // <a> attributes
           name: 'default button',
-          label: 'button',
+          label: '',
           href: 'http://www.google.com',
           title: 'button',
           target: '_self',
@@ -46,7 +46,10 @@ export default {
           rel: this.btn.tag === 'a' && this.btn.target === '_blank' ? 'noopener noreferer' : null
         },
       },
-      this.btn.label
+      [
+        this.btn.label,
+        this.$slots.default,
+      ]
     )
   },
 }

@@ -26,26 +26,36 @@
         <base-button
           :btn="{
             tag: 'a',
-            name: 'partage instagram',
-            label: '',
             title: 'Suivez moi sur Instagram',
-            class: 'ui-icon icon-instagram',
+            name: 'partage instagram',
             target: '_blank',
             href: instagramAccountUrl,
           }"
-        />
+        >
+          <base-icon
+            name="instagram"
+            :width="16"
+            :height="16"
+            icon-marge="0"
+          />
+        </base-button>
       </li>
-      <li v-if="false" class="social__item">
+      <li v-if="true" class="social__item">
         <base-button
           :btn="{
             tag: 'a',
             name: 'contact mail',
-            label: '',
             title: 'Contacez-moi',
-            class: 'ui-icon icon-mail_outline',
             href: mailTo,
           }"
-        />
+        >
+          <base-icon
+            name="mail_outline"
+            :width="16"
+            :height="16"
+            icon-marge="0"
+          />
+        </base-button>
       </li>
     </ul>
   </div>
@@ -148,15 +158,11 @@ export default {
       width: auto;
       height: auto;
 
-      .ui-icon {
+      a {
         width: 2rem;
         height: 2rem;
         line-height: 0;
         @apply flex justify-center items-center;
-
-        &::before {
-          font-size: 0.8em;
-        }
       }
     }
   }
@@ -170,14 +176,7 @@ export default {
       margin: 0 0 0 auto;
       
       .social__item {
-        
-        .ui-icon {
-          line-height: 1rem;
-          
-          &::before {
-            font-size: 1em;
-          }
-        }
+        a  {}
       }
     }
   }
@@ -187,6 +186,7 @@ export default {
       width: auto;
       flex: 0 0 auto;
       margin: auto 1rem auto auto;
+
       .nav__list {
         transform: translate(0%, 0%) scale(1, 1);
       }
@@ -200,14 +200,12 @@ export default {
     .logo {}
     .nav {
       .nav__list {
-        .nav__item {
-        }
+        .nav__item {}
       }
     }
     .social__list {
       .social__item {
-        .ui-icon {
-        }
+        a {}
       }
     }
   }
