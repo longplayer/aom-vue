@@ -73,6 +73,7 @@ export default {
       if (typeof document !== 'undefined') { output += document.location.origin}
       return `${output}${this.$axios.defaults.baseURL}${this.$store.getters['hero/getHeroState'].image.path}`
     },
+    sal() { return this.$nuxt.context.app.sal}
   },
   watch: {
     isModalVisible() {
@@ -80,12 +81,14 @@ export default {
     }
   },
   mounted() {
-    // ensure sal has been updated
-    this.$nuxt.context.app.sal.update()
-
-    // const element = this.$refs.saltest.$el
-    // element.addEventListener('sal:in', ({detail}) => {})
-    // console.log('>>> ABSOLUTE PATH: ', this.shareImageFile)
+    this.sal.enable()
+    // this.sal.elements.forEach(el => {
+    //   el.addEventListener('sal:in', ({detail}) => {})
+    //   el.addEventListener('sal:out', ({detail}) => {})
+    // })
+  },
+  destroyed() {
+    this.sal.reset()
   },
   methods: {
     showModal() {
