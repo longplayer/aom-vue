@@ -8,6 +8,9 @@
     </nuxt-link>
     <nav class="nav">
       <ul class="nav__list">
+        <li v-if="$nuxt.context.isDev" class="nav__item">
+          <nuxt-link to="/demo">dev-demo</nuxt-link>
+        </li>
         <li class="nav__item">
           <base-button
             v-scroll-to="'#section-gridview'"
