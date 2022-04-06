@@ -21,10 +21,10 @@
             class="h-img"
             width="1600"
             height="900"
-            sizes="sm:100vw md:100vw lg:100vw"
+            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
             format="webp"
             provider="static"
-            quality="85"
+            quality="70"
             fit="cover"
           ></nuxt-img>
         </figure>

@@ -3,7 +3,7 @@ const getFilePath = (path) => `img/sculpture/${path}`
 
 export const state = () => ({
   title: 'Mes travaux',
-  subTitle: 'Selection de mes dernières oeuvres',
+  subTitle: 'Sélection de mes dernières oeuvres',
   list: [],
 })
 
