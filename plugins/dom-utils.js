@@ -4,8 +4,15 @@ const addDeviceTypeClass = (isMobile) => {
   }
 }
 
+const blockPageScroll = () => {
+  if (typeof document !== 'undefined') {
+    document.body.classList.toggle('pge-scroll-block')
+  }
+}
+
 export default ({ app }, inject) => {
   inject('dom', {
-    addDeviceTypeClass
+    addDeviceTypeClass,
+    blockPageScroll,
   })
 }

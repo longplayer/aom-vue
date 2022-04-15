@@ -77,7 +77,7 @@ export default {
   },
   watch: {
     isModalVisible() {
-      this.blockPageScroll()
+      this.$dom.blockPageScroll()
     }
   },
   mounted() {
@@ -97,9 +97,6 @@ export default {
     closeModal() {
       this.$store.dispatch('registration/setVisibility', false)
     },
-    blockPageScroll() {
-      document.body.classList.toggle('pge-scroll-block')
-    }
   }
 }
 </script>
