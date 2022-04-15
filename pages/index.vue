@@ -73,7 +73,7 @@ export default {
       if (typeof document !== 'undefined') { output += document.location.origin}
       return `${output}${this.$axios.defaults.baseURL}${this.$store.getters['hero/getHeroState'].image.path}`
     },
-    sal() { return this.$nuxt.context.app.sal}
+    sal() { return this.$sal }
   },
   watch: {
     isModalVisible() {
