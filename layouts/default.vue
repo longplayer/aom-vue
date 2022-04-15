@@ -11,6 +11,25 @@
   </div>
 </template>
 
+<script>
+export default {
+  created() {
+    this.addBodyClass()
+  },
+  updated() {
+    this.addBodyClass()
+  },
+
+  methods: {
+    addBodyClass() {
+      if(this.$dom?.addDeviceTypeClass) {
+        this.$dom.addDeviceTypeClass(this.$isMobile)
+      }
+    },
+  }
+}
+</script>
+
 <style lang="postcss">
 #app {
   -webkit-font-smoothing: antialiased;

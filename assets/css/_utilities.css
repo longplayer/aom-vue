@@ -16,15 +16,21 @@
 
 /* desaturate image within the container
   recolorize image on hover */
-.container-image-desaturate {
-  img {
-    transition: filter 300ms ease;
-    filter: saturate(0);
-  }
-  &:hover img,
-  &:active img,
-  &:focus img {
-    filter: saturate(1);
+
+.is-mouse {
+
+  .container-image-desaturate {
+
+    img {
+      transition: filter 300ms ease;
+      filter: saturate(0);
+    }
+
+    &:hover img,
+    &:active img,
+    &:focus img {
+      filter: saturate(1);
+    }
   }
 }
 

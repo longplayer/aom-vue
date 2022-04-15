@@ -1,26 +1,35 @@
 <template>
-  <section id="section-gridview" class="section-gridview">
+  <section
+    id="section-gridview"
+    class="section-gridview"
+  >
     <div class="gridview">
+      
       <header>
         <h2 class="app-title">{{ waterfall.title }}</h2>
         <p class="app-subtitle">{{ waterfall.subTitle }}</p>
       </header>
+      
       <ul
         ref="$container"
         class="gridview__list"
         @click="onClick"
+      >
+        <li
+          v-for="(classvalue, index) in gridViewClassList"
+          :key="index"
+          :class="[classvalue, 'gridview__item']"
         >
-        <template v-for="(classvalue, index) in gridViewClassList">
-          <li :key="index" :class="[classvalue, 'gridview__item']">
-            <button class="gridview__link container-image-desaturate container-image-cover">
-              <base-clasy-loader
-                :image="list[index]"
-                :index="index"
-                @image="onImageLoad"
-              />
-            </button>
-          </li>
-        </template>
+          <button
+            class="gridview__link container-image-desaturate container-image-cover"
+          >
+            <base-clasy-loader
+              :image="list[index]"
+              :index="index"
+              @image="onImageLoad"
+            />
+          </button>
+        </li>
       </ul>
     </div>
   </section>
@@ -38,7 +47,7 @@ const ITEMS_LAYOUT_CSS_CLASS = [
   'gridview__item--v',
   'gridview__item--h',
   '',
-  'gridview__item--h'
+  'gridview__item--h',
 ]
 
 export default {
@@ -49,34 +58,35 @@ export default {
       image: DEFAULT_IMAGE,
       list: [],
       waterfall: this.$store.getters['waterfall/getWaterfallState'],
-      gridViewClassList: ITEMS_LAYOUT_CSS_CLASS
+      gridViewClassList: ITEMS_LAYOUT_CSS_CLASS,
     }
   },
   created() {
     // init store state on page reload
-    if(this.waterfall.list.length === 0) {
+    if (this.waterfall.list.length === 0) {
       this.$store.dispatch('waterfall/initArtworks')
     }
     // random list image
-    this.list = this.setRadomIndexList(this.waterfall.list.length, this.imagesLimit)
-      .map((index) => this.waterfall.list[index])
+    this.list = this.setRadomIndexList(
+      this.waterfall.list.length,
+      this.imagesLimit
+    ).map((index) => this.waterfall.list[index])
   },
-  mounted () {
+  mounted() {
     this.$photoswipe.listen('beforeChange', (e) => this.beforeChange(e))
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.$photoswipe.unlisten('beforeChange', (e) => this.beforeChange(e))
   },
   methods: {
-    onImageLoad (ev) {},
-    onClick (ev) {
-
-      if(typeof this.$photoswipe === 'undefined') return
+    onImageLoad(ev) {},
+    onClick(ev) {
+      if (typeof this.$photoswipe === 'undefined') return
 
       const $el = this.imagesHTMLCollection
         ? this.imagesHTMLCollection
         : this.$refs.$container.querySelectorAll('img')
-      const {index, items} = this.getListAndIndex($el, ev)
+      const { index, items } = this.getListAndIndex($el, ev)
 
       this.imagesHTMLCollection = $el // save image collection for next time
       this.$photoswipe.open(items, { index })
@@ -84,9 +94,10 @@ export default {
     getListAndIndex($container, ev) {
       let index = 0
       const items = []
-      const imageTarget = (ev.target instanceof HTMLImageElement)
-        ? ev.target
-        : ev.target.querySelector('img')
+      const imageTarget =
+        ev.target instanceof HTMLImageElement
+          ? ev.target
+          : ev.target.querySelector('img')
 
       for (const img of $container) {
         if (img instanceof HTMLImageElement) {
@@ -105,15 +116,17 @@ export default {
       const randomList = []
       const getRandomIndex = () => Math.floor(Math.random() * length)
 
-      for(let i = 0; i < limit; i++) {
+      for (let i = 0; i < limit; i++) {
         let randomIndex = getRandomIndex()
         // generate new randomIndex until it's not include in the array
-        while (randomList.includes(randomIndex)) { randomIndex = getRandomIndex() }
+        while (randomList.includes(randomIndex)) {
+          randomIndex = getRandomIndex()
+        }
         randomList.push(randomIndex)
       }
       return randomList
     },
-    beforeChange (args) {
+    beforeChange(args) {
       // console.log('>>beforeChange event', args); // eslint-disable-line
     },
   },
